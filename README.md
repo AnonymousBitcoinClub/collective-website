@@ -19,7 +19,7 @@ Respect
 We value diversity and inclusivity in our community and expect all contributors to respect one another regardless of race, gender, sexual orientation, or any other personal characteristic. Any disrespectful behavior will not be tolerated.
 
 Legal Content
-All content contributed to AllAboutBitcoin.com should be legal and free from any copyright infringement. Contributors should ensure that any content they contribute is original or properly attributed.
+All content contributed to AllAboutBTC.com should be legal and free from any copyright infringement. Contributors should ensure that any content they contribute is original or properly attributed.
 
 Contributing
 We welcome contributions from the community and encourage anyone interested in contributing to review our Contribution Guidelines before submitting a pull request.
