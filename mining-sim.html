@@ -18,13 +18,15 @@
 <script>
     let miningInProgress = false;
     let checkedHashes = 0;
+    let previousHash = "0000000000000000004c4ec88f4c789f8b74e95d193feeb1169e218b90c35dcb";
+    let startTime;
 
     async function mine() {
         if (!miningInProgress) return;
 
         const target = "00000";
         let nonce = 0;
-        const blockHeader = "2,0000000000000000004c4ec88f4c789f8b74e95d193feeb1169e218b90c35dcb,2a96a3a50a3d3dc65b5aa9f7cbcc2885a8362cfb5c39a5df5b301d5e087f8a6e,1645217400,386817372";
+        let blockHeader = `2,${previousHash},2a96a3a50a3d3dc65b5aa9f7cbcc2885a8362cfb5c39a5df5b301d5e087f8a6e,1645217400,386817372`;
 
         while (true) {
             const blockWithNonce = blockHeader + "," + nonce;
@@ -40,24 +42,29 @@
                 console.log("Found valid hash:", hashHex);
                 console.log("Nonce value:", nonce);
                 displayValidHash(hashHex, nonce);
-                break;
+                previousHash = hashHex; // Update the previousHash variable
+                nonce = 0; // Reset the nonce for the next block
+                blockHeader = `2,${previousHash},2a96a3a50a3d3dc65b5aa9f7cbcc2885a8362cfb5c39a5df5b301d5e087f8a6e,1645217400,386817372`; // Update the blockHeader with the new hash
+            } else {
+                nonce++;
             }
 
-            nonce++;
             if (!miningInProgress) break;
         }
 
         if (miningInProgress) setTimeout(mine, 0);
     }
 
-function startMining() {
-    if (!miningInProgress) {
-        miningInProgress = true;
-        document.getElementById('mining-status').textContent = 'Mining in progress...';
-        document.getElementById('mining-gif').style.display = 'block'; // show the GIF
-        mine();
+    function startMining() {
+        if (!miningInProgress) {
+            miningInProgress = true;
+            startTime = new Date(); // Store the start time
+            document.getElementById('mining-status').textContent = 'Mining in progress...';
+            document.getElementById('mining-gif').style.display = 'block'; // show the GIF
+            mine();
+            updateHashRate();
+        }
     }
-}
 
 function stopMining() {
     if (miningInProgress) {
@@ -68,23 +75,33 @@ function stopMining() {
 }
 
 function displayValidHash(hash, nonce) {
-    const nonceInput = document.getElementById('nonce-input').value;
     const walletInput = document.getElementById('wallet-input').value;
 
-    if (nonce == nonceInput && walletInput.length == 8) {
+    if (walletInput.length == 8) {
         const validHashElement = document.createElement('p');
         validHashElement.textContent = `Hash: ${hash}, Nonce: ${nonce}, Wallet Address: ${walletInput}`;
         document.getElementById('valid-hashes').appendChild(validHashElement);
     } else {
-        alert('Invalid nonce or wallet address.');
+        alert('Invalid wallet address.');
     }
 }
 
+    function updateHashRate() {
+        const currentTime = new Date();
+        const elapsedTime = (currentTime - startTime) / 1000; // Get elapsed time in seconds
+        const hashRate = checkedHashes / elapsedTime; // Calculate hash rate
+
+        document.getElementById('hash-rate').textContent = `Hash rate: ${hashRate.toFixed(2)} hashes/s`;
+        if (miningInProgress) {
+            setTimeout(updateHashRate, 1000);
+        }
+    }
 </script>
+
 </head>
 <body>
-    <div style="text-align:center;">
-        <a href="https://discord.gg/VZP6cmnjr9" ><img src="OM.png" alt="https://discord.gg/VZP6cmnjr9" style="width:80%;height:auto;"></a>
+    <div style="display:flex;justify-content:center;">
+        <img src="OM.png" style="width:80%;height:auto;">
     </div>
 <h2>Stratum Mining Challenge</h2>
 <label for="nonce-input">Correct Nonce:</label>
@@ -98,9 +115,8 @@ function displayValidHash(hash, nonce) {
 <p id="mining-status">Not mining.</p>
 <img id="mining-gif" src="miner.gif" style="display:none;">
 <p id="checked-hashes">Checked hashes: 0</p>
+<p id="hash-rate">Hash rate: 0 hashes/s</p>
 <div id="valid-hashes"></div>
 
 </body>
 </html>
-
-
