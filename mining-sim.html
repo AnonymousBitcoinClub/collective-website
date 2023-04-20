@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #start-mining, #stop-mining {
+        cursor: pointer;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+    }
+</style>
+<script>
+    let miningInProgress = false;
+    let checkedHashes = 0;
+
+    async function mine() {
+        if (!miningInProgress) return;
+
+        const target = "00000";
+        let nonce = 0;
+        const blockHeader = "2,0000000000000000004c4ec88f4c789f8b74e95d193feeb1169e218b90c35dcb,2a96a3a50a3d3dc65b5aa9f7cbcc2885a8362cfb5c39a5df5b301d5e087f8a6e,1645217400,386817372";
+
+        while (true) {
+            const blockWithNonce = blockHeader + "," + nonce;
+            const hash = new TextEncoder().encode(blockWithNonce);
+            const digest = await crypto.subtle.digest('SHA-256', hash);
+            const hashArray = Array.from(new Uint8Array(digest));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+            checkedHashes++;
+            document.getElementById('checked-hashes').textContent = `Checked hashes: ${checkedHashes}`;
+
+            if (hashHex.startsWith(target)) {
+                console.log("Found valid hash:", hashHex);
+                console.log("Nonce value:", nonce);
+                displayValidHash(hashHex, nonce);
+                break;
+            }
+
+            nonce++;
+            if (!miningInProgress) break;
+        }
+
+        if (miningInProgress) setTimeout(mine, 0);
+    }
+
+function startMining() {
+    if (!miningInProgress) {
+        miningInProgress = true;
+        document.getElementById('mining-status').textContent = 'Mining in progress...';
+        document.getElementById('mining-gif').style.display = 'block'; // show the GIF
+        mine();
+    }
+}
+
+function stopMining() {
+    if (miningInProgress) {
+        miningInProgress = false;
+        document.getElementById('mining-status').textContent = 'Mining stopped.';
+        document.getElementById('mining-gif').style.display = 'none'; // hide the GIF
+    }
+}
+
+function displayValidHash(hash, nonce) {
+    const nonceInput = document.getElementById('nonce-input').value;
+    const walletInput = document.getElementById('wallet-input').value;
+
+    if (nonce == nonceInput && walletInput.length == 8) {
+        const validHashElement = document.createElement('p');
+        validHashElement.textContent = `Hash: ${hash}, Nonce: ${nonce}, Wallet Address: ${walletInput}`;
+        document.getElementById('valid-hashes').appendChild(validHashElement);
+    } else {
+        alert('Invalid nonce or wallet address.');
+    }
+}
+
+</script>
+</head>
+<body>
+    <div style="display:flex;justify-content:center;">
+        <img src="OM.png" style="width:80%;height:auto;">
+    </div>
+<h2>Stratum Mining Challenge</h2>
+<label for="nonce-input">Correct Nonce:</label>
+<input type="text" id="nonce-input"><br><br>
+
+<label for="wallet-input">Last 8 Digits of BTC Wallet Address:</label>
+<input type="text" id="wallet-input"><br><br>
+
+<button id="start-mining" onclick="startMining()">Start Mining</button>
+<button id="stop-mining" onclick="stopMining()">Stop Mining</button>
+<p id="mining-status">Not mining.</p>
+<img id="mining-gif" src="miner.gif" style="display:none;">
+<p id="checked-hashes">Checked hashes: 0</p>
+<div id="valid-hashes"></div>
+
+</body>
+</html>
+
+
