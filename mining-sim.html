@@ -18,42 +18,49 @@
 <script>
     let miningInProgress = false;
     let checkedHashes = 0;
+    let firstNonce = 0;
     let previousHash = "0000000000000000004c4ec88f4c789f8b74e95d193feeb1169e218b90c35dcb";
     let startTime;
 
-    async function mine() {
-        if (!miningInProgress) return;
+ async function mine() {
+    if (!miningInProgress) return;
 
-        const target = "00000";
-        let nonce = 0;
-        let blockHeader = `2,${previousHash},2a96a3a50a3d3dc65b5aa9f7cbcc2885a8362cfb5c39a5df5b301d5e087f8a6e,1645217400,386817372`;
+    const target = "00000";
+    let nonce = 0;
+    let blockHeader = `2,${previousHash},2a96a3a50a3d3dc65b5aa9f7cbcc2885a8362cfb5c39a5df5b301d5e087f8a6e,1645217400,386817372`;
 
-        while (true) {
-            const blockWithNonce = blockHeader + "," + nonce;
-            const hash = new TextEncoder().encode(blockWithNonce);
-            const digest = await crypto.subtle.digest('SHA-256', hash);
-            const hashArray = Array.from(new Uint8Array(digest));
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    while (true) {
+        const blockWithNonce = blockHeader + "," + nonce;
+        const hash = new TextEncoder().encode(blockWithNonce);
+        const digest = await crypto.subtle.digest('SHA-256', hash);
+        const hashArray = Array.from(new Uint8Array(digest));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-            checkedHashes++;
-            document.getElementById('checked-hashes').textContent = `Checked hashes: ${checkedHashes}`;
+        checkedHashes++;
+        document.getElementById('checked-hashes').textContent = `Checked hashes: ${checkedHashes}`;
 
-            if (hashHex.startsWith(target)) {
-                console.log("Found valid hash:", hashHex);
-                console.log("Nonce value:", nonce);
-                displayValidHash(hashHex, nonce);
-                previousHash = hashHex; // Update the previousHash variable
-                nonce = 0; // Reset the nonce for the next block
-                blockHeader = `2,${previousHash},2a96a3a50a3d3dc65b5aa9f7cbcc2885a8362cfb5c39a5df5b301d5e087f8a6e,1645217400,386817372`; // Update the blockHeader with the new hash
+        if (hashHex.startsWith(target)) {
+            console.log("Found valid hash:", hashHex);
+            console.log("Nonce value:", nonce);
+            if (firstNonce == 0) {
+		firstNonce = 1;
             } else {
-                nonce++;
+            	document.getElementById('nonce-input').value = nonce; // Update the nonce input value
             }
-
-            if (!miningInProgress) break;
+            displayValidHash(hashHex, nonce);
+            previousHash = hashHex; // Update the previousHash variable
+            nonce = 0; // Reset the nonce for the next block
+            blockHeader = `2,${previousHash},2a96a3a50a3d3dc65b5aa9f7cbcc2885a8362cfb5c39a5df5b301d5e087f8a6e,1645217400,386817372`; // Update the blockHeader with the new hash
+        } else {
+            nonce++;
         }
 
-        if (miningInProgress) setTimeout(mine, 0);
+        if (!miningInProgress) break;
     }
+
+    if (miningInProgress) setTimeout(mine, 0);
+}
+
 
     function startMining() {
         if (!miningInProgress) {
@@ -75,16 +82,20 @@ function stopMining() {
 }
 
 function displayValidHash(hash, nonce) {
+    const nonceInput = document.getElementById('nonce-input').value;
     const walletInput = document.getElementById('wallet-input').value;
 
-    if (walletInput.length == 8) {
+    if (nonce == nonceInput && walletInput.length == 8) {
         const validHashElement = document.createElement('p');
         validHashElement.textContent = `Hash: ${hash}, Nonce: ${nonce}, Wallet Address: ${walletInput}`;
         document.getElementById('valid-hashes').appendChild(validHashElement);
-    } else {
+    } else if (walletInput.length != 8) {
         alert('Invalid wallet address.');
+    } else if (nonce != nonceInput) {
+        alert('Incorrect nonce input.');
     }
 }
+
 
     function updateHashRate() {
         const currentTime = new Date();
