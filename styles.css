@@ -1,45 +1,56 @@
 body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* dark background for the body */
+    color: #e1e1e1;  /* light text color */
 }
 
 header {
-	background-color: #F7931A;
-	color: #fff;
-	padding: 20px;
+    background-color: #1e1e1e; /* slightly lighter than body for contrast */
+    color: #e1e1e1;  /* light text color */
+    padding: 20px;
 }
 
 nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 nav ul li {
-	margin: 0 10px;
+    margin: 0 10px;
 }
 
 nav ul li a {
-	color: #fff;
-	text-decoration: none;
+    color: #f7931a;  /* Bitcoin orange color for links */
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 0.3s; /* smooth transition for hover effect */
+}
+
+nav ul li a:hover {
+    background-color: #2c2c2c;  /* slightly lighter hover effect on links */
 }
 
 main {
-	margin: 20px;
+    margin: 20px;
 }
 
 section {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 h1, h2 {
-	font-weight: normal;
+    font-weight: normal;
 }
 
 footer {
-	background-color: #ccc;
-	padding: 10px;
-	text-align:
+    background-color: #1e1e1e;
+    padding: 10px;
+    text-align: center;
+    color: #e1e1e1;
+}
