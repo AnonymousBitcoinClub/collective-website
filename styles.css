@@ -54,3 +54,8 @@ footer {
     text-align: center;
     color: #e1e1e1;
 }
+
+#ulbricht-pardon-article {
+    font-weight: bold; /* Makes the text bold */
+    margin: 20px 0; /* Adds some margin for spacing */
+}
