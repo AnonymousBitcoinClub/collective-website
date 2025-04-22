@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contributors - All About BTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>All About BTC</h1>
+        <nav class="sticky-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#resources" class="dropbtn">Resources</a>
+                        <div class="dropdown-content">
+                            <a href="wallets.html">Wallets</a>
+                            <a href="exchanges.html">Exchanges</a>
+                            <a href="mining-guides.html">Mining Guides</a>
+                            <a href="whitepapers.html">Whitepapers</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <input type="text" id="searchBar" placeholder="Search..." onkeyup="redirectToSearch()">
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <section>
+                <p><em>Note: The search function will redirect you to the homepage to display results.</em></p>
+                <h2>Contributors</h2>
+                <p>Thank you to the following contributors who have helped build this site:</p>
+                <ul id="contributors-list">
+                    <!-- Contributors will be populated dynamically -->
+                </ul>
+                <h3>Recent Contributions</h3>
+                <div id="recent-commits"></div>
+            </section>
+        </div>
+        <div class="section-divider"></div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Contribute on GitHub</a>
+            <a href="mailto:contact@allaboutbtc.com">Contact Us</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="contributors.html">Contributors</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://x.com" target="_blank">X</a>
+            <a href="https://discord.gg/CTNuYsbr3K" target="_blank">Discord</a>
+        </div>
+        <div class="open-source-badge">
+            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Open Source</a>
+        </div>
+    </footer>
+
+    <script src="search.js"></script>
+    <script>
+        // Fetch contributors from GitHub API
+        fetch('https://api.github.com/repos/AnonymousBitcoinClub/collective-website/contributors?per_page=100')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch contributors');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const container = document.getElementById('contributors-list');
+                if (data.length === 0) {
+                    container.innerHTML = '<li>No contributors found.</li>';
+                    return;
+                }
+                data.forEach(contributor => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${contributor.html_url}">${contributor.login}</a> (${contributor.contributions} contributions)`;
+                    container.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching contributors:', error);
+                const container = document.getElementById('contributors-list');
+                container.innerHTML = '<li>Unable to load contributors at this time. Please try again later.</li>';
+            });
+
+        // Fetch recent GitHub commits
+        fetch('https://api.github.com/repos/AnonymousBitcoinClub/collective-website/commits')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch commits');
+                }
+                return response.json();
+            })
+            .then(data => {
+                let commits = data.slice(0, 3); // Show last 3 commits
+                let container = document.getElementById('recent-commits');
+                commits.forEach(commit => {
+                    let p = document.createElement('p');
+                    p.innerHTML = `<a href="${commit.html_url}">${commit.commit.message}</a>`;
+                    container.appendChild(p);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching commits:', error);
+                const container = document.getElementById('recent-commits');
+                container.innerHTML = '<p>Unable to load recent commits at this time. Please try again later.</p>';
+            });
+    </script>
+</body>
+</html>

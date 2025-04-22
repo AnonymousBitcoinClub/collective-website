@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bitcoin Whitepaper - All About BTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>All About BTC</h1>
+        <nav class="sticky-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#resources" class="dropbtn">Resources</a>
+                        <div class="dropdown-content">
+                            <a href="wallets.html">Wallets</a>
+                            <a href="exchanges.html">Exchanges</a>
+                            <a href="mining-guides.html">Mining Guides</a>
+                            <a href="whitepapers.html">Whitepapers</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <input type="text" id="searchBar" placeholder="Search..." onkeyup="redirectToSearch()">
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <section>
+                <p><em>Note: The search function will redirect you to the homepage to display results.</em></p>
+                <h2>Bitcoin Whitepaper</h2>
+                <p>The Bitcoin whitepaper, published by Satoshi Nakamoto in 2008, introduced the concept of a decentralized digital currency. Below is an excerpt of the whitepaper. For the full document, you can download the official PDF: <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin Whitepaper PDF</a>.</p>
+
+                <h3>Abstract</h3>
+                <p>A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.</p>
+
+                <h3>Introduction</h3>
+                <p>Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments. While the system works well enough for most transactions, it still suffers from the inherent weaknesses of the trust based model. Completely non-reversible transactions are not really possible, since financial institutions cannot avoid mediating disputes. The cost of mediation increases transaction costs, limiting the minimum practical transaction size and cutting off the possibility for small casual transactions, and there is a broader cost in the loss of ability to make non-reversible payments for non-reversible services. With the possibility of reversal, the need for trust spreads. Merchants must be wary of their customers, hassling them for more information than they would otherwise need. A certain percentage of fraud is accepted as unavoidable. These costs and payment uncertainties can be avoided in person by using physical currency, but no mechanism exists to make payments over a communications channel without a trusted party.</p>
+                <p>What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party. Transactions that are computationally impractical to reverse would protect sellers from fraud, and routine escrow mechanisms could easily be implemented to protect buyers. In this paper, we propose a solution to the double-spending problem using a peer-to-peer distributed timestamp server to generate computational proof of the chronological order of transactions. The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.</p>
+
+                <p>For the complete details, including sections on transactions, timestamp server, proof-of-work, network, and more, please refer to the full <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin Whitepaper PDF</a>.</p>
+            </section>
+        </div>
+        <div class="section-divider"></div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Contribute on GitHub</a>
+            <a href="mailto:contact@allaboutbtc.com">Contact Us</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="contributors.html">Contributors</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://x.com" target="_blank">X</a>
+            <a href="https://discord.gg/CTNuYsbr3K" target="_blank">Discord</a>
+        </div>
+        <div class="open-source-badge">
+            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Open Source</a>
+        </div>
+    </footer>
+
+    <script src="search.js"></script>
+</body>
+</html>

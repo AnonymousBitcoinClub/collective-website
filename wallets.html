@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wallets - All About BTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>All About BTC</h1>
+        <nav class="sticky-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#resources" class="dropbtn">Resources</a>
+                        <div class="dropdown-content">
+                            <a href="wallets.html">Wallets</a>
+                            <a href="exchanges.html">Exchanges</a>
+                            <a href="mining-guides.html">Mining Guides</a>
+                            <a href="whitepapers.html">Whitepapers</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <input type="text" id="searchBar" placeholder="Search..." onkeyup="redirectToSearch()">
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <section>
+                <p><em>Note: The search function will redirect you to the homepage to display results.</em></p>
+                <h2>Bitcoin Wallets</h2>
+                <p>Running your own full node allows you to independently verify Bitcoin transactions and contribute to the network's security. You can set up a Bitcoin full node using Bitcoin Core: <a href="https://github.com/bitcoin/bitcoin">Bitcoin Core GitHub Repository</a>.</p>
+
+                <h3>Top 10 Most Used Bitcoin Wallets in 2025</h3>
+                <p>Below is a list of the top 10 most used Bitcoin wallets in 2025, based on user adoption, security features, and community trust. Community members are welcome to contribute more options via <a href="https://github.com/AnonymousBitcoinClub/collective-website">GitHub</a>.</p>
+                <ul>
+                    <li><strong>Trust Wallet</strong> - A popular mobile wallet with over 140 million users, supporting Bitcoin and 10 million+ digital assets across 100+ blockchains. It offers a user-friendly interface and dApp browser for DeFi and NFTs. <a href="https://github.com/trustwallet">Trust Wallet GitHub</a>.</li>
+                    <li><strong>Coinbase Wallet</strong> - A beginner-friendly wallet integrated with the Coinbase exchange, supporting Bitcoin and thousands of tokens. It’s widely used in the U.S. for its intuitive interface and hardware wallet compatibility. Not open-source, so no GitHub link is available.</li>
+                    <li><strong>Ledger Nano X</strong> - A leading hardware wallet supporting Bitcoin and over 5,500 coins. It’s popular for its robust security and Bluetooth connectivity. Not fully open-source, but some components are available on GitHub: <a href="https://github.com/LedgerHQ">Ledger GitHub</a>.</li>
+                    <li><strong>Exodus</strong> - A desktop and mobile wallet known for its sleek interface, supporting Bitcoin and over 280 assets. It’s popular for its ease of use and integration with Trezor hardware wallets. Partially open-source: <a href="https://github.com/ExodusMovement">Exodus GitHub</a>.</li>
+                    <li><strong>Electrum</strong> - A Bitcoin-only wallet favored by advanced users for its security features, including cold storage and Lightning Network support. It’s fully open-source: <a href="https://github.com/spesmilo/electrum">Electrum GitHub</a>.</li>
+                    <li><strong>Trezor (Model T/Safe 5)</strong> - A trusted hardware wallet supporting Bitcoin and around 1,000 cryptocurrencies. Known for its open-source software and affordability. <a href="https://github.com/trezor">Trezor GitHub</a>.</li>
+                    <li><strong>Zengo</strong> - A next-generation wallet using Multi-Party Computation (MPC) instead of seed phrases, with a strong security record (no hacks as of April 2025). Not open-source, so no GitHub link is available.</li>
+                    <li><strong>BlueWallet</strong> - A Bitcoin-exclusive mobile wallet with Lightning Network support, popular for its simplicity and security. Fully open-source: <a href="https://github.com/BlueWallet/BlueWallet">BlueWallet GitHub</a>.</li>
+                    <li><strong>Coin Wallet</strong> - A self-custodial multicurrency wallet supporting Bitcoin, with desktop and mobile apps. It’s known for its ease of use and open-source code: <a href="https://github.com/CoinSpace/CoinWallet">Coin Wallet GitHub</a>.</li>
+                    <li><strong>BitBox02</strong> - A hardware wallet with a Bitcoin-only edition, popular for its strong security and open-source software. <a href="https://github.com/bitboxwallet">BitBox GitHub</a>.</li>
+                </ul>
+            </section>
+        </div>
+        <div class="section-divider"></div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Contribute on GitHub</a>
+            <a href="mailto:contact@allaboutbtc.com">Contact Us</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="contributors.html">Contributors</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://x.com" target="_blank">X</a>
+            <a href="https://discord.gg/CTNuYsbr3K" target="_blank">Discord</a>
+        </div>
+        <div class="open-source-badge">
+            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Open Source</a>
+        </div>
+    </footer>
+
+    <script src="search.js"></script>
+</body>
+</html>

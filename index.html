@@ -1,75 +1,140 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bitcoin Info</title>
-	<link rel="stylesheet" href="styles.css">
+    <title>All About BTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<header>
-		<h1>Bitcoin Info</h1>
-		<nav>
-			<ul>
-				<li><a href="#what-is-bitcoin">What is Bitcoin?</a></li>
-				<li><a href="#how-it-works">How it Works</a></li>
-				<li><a href="#why-use-bitcoin">Why Use Bitcoin</a></li>
-				<li><a href="#resources">Resources</a></li>
-				<li><a href="mining-sim.html">Ordinal Miners Mining Sim</a></li>
-				<li><a href="https://github.com/cypherpunklab">Cypherpunk Lab</a></li>
-			</ul>
-		</nav>
-	</header>
+    <header>
+        <h1>All About BTC</h1>
+        <nav class="sticky-nav">
+            <ul>
+                <li><a href="#what-is-bitcoin">What is Bitcoin?</a></li>
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#why-use-bitcoin">Why Use Bitcoin</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#resources" class="dropbtn">Resources</a>
+                        <div class="dropdown-content">
+                            <a href="wallets.html">Wallets</a>
+                            <a href="exchanges.html">Exchanges</a>
+                            <a href="mining-guides.html">Mining Guides</a>
+                            <a href="whitepapers.html">Whitepapers</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="mining-sim.html">Ordinal Miners Mining Sim</a></li>
+                <li><a href="https://github.com/cypherpunklab">Cypherpunk Lab</a></li>
+            </ul>
+            <input type="text" id="searchBar" placeholder="Search..." onkeyup="searchSite()">
+        </nav>
+    </header>
 
-	<div id="ulbricht-pardon-article">
-		<p>President Trump's promise to pardon Ross Ulbricht, the founder of the Silk Road marketplace, carries significant implications for the Bitcoin community and wider debates on digital freedom. Ulbricht, who received a double life sentence without parole for operating the pioneering dark web platform, has become a symbol for many within the cryptocurrency space advocating for sentencing reform and questioning the justice system’s approach to early Bitcoin adopters. A pardon would not only mark a pivotal moment in the history of Bitcoin but would also rekindle discussions about the decentralized ethos it embodies and the regulatory and ethical challenges that digital currencies continue to face.</p>
-	</div>
+		<div class="hero">
+		    <h2>Welcome to All About BTC</h2>
+		    <p>Your community-driven resource for learning about Bitcoin, its technology, and its impact. Explore, contribute, and join the conversation!</p>
+		    <a href="https://github.com/AnonymousBitcoinClub/collective-website" class="cta-button">Contribute on GitHub</a>
+		</div>
 
-	<main>
-		<section id="what-is-bitcoin">
-			<h2>What is Bitcoin?</h2>
-			<p>Bitcoin is a decentralized peer to peer network protocol developed out of the <a href="https://www.cypherpunkghosts.com/cypherpunkswritecode">Cypherpunks movement</a> which impelments a public digital ledger. The Bitcoin cryptocurrency exists without a central bank or single administrator, and can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.</p>
-			<p>Bitcoin is often referred to as a cryptocurrency, as it uses cryptography to secure and verify transactions on the network.</p>
-			<p>Bitcoin is a framework upon which efforts like the <a href="https://docs.ordinals.com/">Ordinals Protocol</a> can be built, allowing for the creation and onchain storage of digital artifacts including art, games, documents, coding libraries and more.</p>
-		</section>
+    <main>
+        <div class="section">
+            <section>
+                <h2>Latest News</h2>
+                <p>President Trump’s promise to pardon Ross Ulbricht sparks discussions in the Bitcoin community. <a href="news.html">Read more</a>.</p>
+            </section>
+        </div>
+        <div class="section-divider"></div>
 
-		<section id="how-it-works">
-			<h2>How it Works</h2>
-			<p>Bitcoin transactions are recorded on a public ledger called the blockchain. The blockchain is maintained by a network of nodes, which validate transactions and add them to the blockchain.</p>
-			<p>To send and receive Bitcoin, users need a digital wallet, which stores their private keys and allows them to interact with the network.</p>
-		</section>
+        <div class="section">
+            <section id="what-is-bitcoin">
+                <h2>What is Bitcoin?</h2>
+                <p>Bitcoin is a decentralized peer to peer network protocol developed out of the <a href="https://www.cypherpunkghosts.com/cypherpunkswritecode">Cypherpunks movement</a> which implements a public digital ledger. The Bitcoin cryptocurrency exists without a central bank or single administrator, and can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.</p>
+                <p>Bitcoin is often referred to as a <a href="glossary.html#cryptocurrency"><strong>cryptocurrency</strong></a>, as it uses cryptography to secure and verify transactions on the network.</p>
+                <p>Bitcoin is a framework upon which efforts like the <a href="https://docs.ordinals.com/">Ordinals Protocol</a> can be built, allowing for the creation and onchain storage of digital artifacts including art, games, documents, coding libraries and more.</p>
+            </section>
+        </div>
+        <div class="section-divider"></div>
 
-		<section id="why-use-bitcoin">
-			<h2>Why Use Bitcoin</h2>
-			<ul>
-				<li>Bitcoin offers fast and secure transactions</li>
-				<li>Bitcoin is decentralized, meaning it is not controlled by any government or financial institution</li>
-				<li>Bitcoin transactions are transparent, as all transactions are recorded on the blockchain</li>
-				<li>Bitcoin can be used for international payments, without the need for currency conversion</li>
-			</ul>
-		</section>
+        <div class="section">
+            <section id="how-it-works">
+                <h2>How it Works</h2>
+                <p><a href="#mining-explained">Mining Explained</a> | <a href="#what-are-nodes">What Are Nodes?</a> | <a href="#understanding-wallets">Understanding Wallets</a></p>
+                <div id="mining-explained">
+                    <h3>Mining Explained</h3>
+                    <p>Bitcoin mining is the process of validating transactions by solving complex mathematical problems...</p>
+                </div>
+                <div id="what-are-nodes">
+                    <h3>What Are Nodes?</h3>
+                    <p>Nodes are computers in the Bitcoin network that maintain a copy of the <a href="glossary.html#blockchain"><strong>blockchain</strong></a>...</p>
+                </div>
+                <div id="understanding-wallets">
+                    <h3>Understanding Wallets</h3>
+                    <p>A Bitcoin wallet stores your <a href="glossary.html#private-keys"><strong>private keys</strong></a>, allowing you to send and receive Bitcoin...</p>
+                </div>
+            </section>
+        </div>
+        <div class="section-divider"></div>
 
-		<section id="community-site">
-			<h2>What's this site about?</h2>
-			<ul>
-				<li>This site is collectively developed and updated live every 24 hours</li>
-				<li>Anyone can submit a change on the <a href="https://github.com/AnonymousBitcoinClub/collective-website">github</a></li>
-				<li>We hope to build an informational site that includes inputs from multiple communities</li>
-				<li>We would like to see contributions to the site in the topics of (mining, coding, sat hunting, ordinals, stamps, XCP in general, and more)</li>
-			</ul>
-		</section>
+        <div class="section">
+            <section id="why-use-bitcoin">
+                <h2>Why Use Bitcoin</h2>
+                <ul>
+                    <li>Bitcoin offers fast and secure transactions</li>
+                    <li>Bitcoin is decentralized, meaning it is not controlled by any government or financial institution</li>
+                    <li>Bitcoin transactions are transparent, as all transactions are recorded on the <a href="glossary.html#blockchain"><strong>blockchain</strong></a></li>
+                    <li>Bitcoin can be used for international payments, without the need for currency conversion</li>
+                </ul>
+            </section>
+        </div>
+        <div class="section-divider"></div>
 
-		<section id="resources">
-			<h2>Resources</h2>
-			<ul>
-				<li><a href="https://bitcoin.org/">Bitcoin.org</a></li>
-				<li><a href="https://www.coindesk.com/">CoinDesk</a></li>
-				<li><a href="https://cointelegraph.com/">Cointelegraph</a></li>
-				<li><a href="https://ordinals.com/">Ordinals</a></li>
-			</ul>
-		</section>
-	</main>
+        <div class="section">
+            <section id="faq">
+                <h2>FAQ</h2>
+                <h3>Is Bitcoin anonymous?</h3>
+                <p>Bitcoin is pseudonymous, not fully anonymous. Transactions are recorded on the <a href="glossary.html#blockchain"><strong>blockchain</strong></a>, but identities can sometimes be traced...</p>
+                <h3>How do I store Bitcoin safely?</h3>
+                <p>Use a hardware wallet (e.g., Ledger or Trezor) and keep your <a href="glossary.html#private-keys"><strong>private keys</strong></a> offline...</p>
+            </section>
+        </div>
+        <div class="section-divider"></div>
 
-	<footer>
-		<p>&copy; 2023 Bitcoin Info - <a href="https://discord.gg/CTNuYsbr3K">Anonymous Bitcoin Club</a></p>
-	</footer>
+        <div class="section">
+            <section id="about-this-site">
+                <h2>About This Site</h2>
+                <p>This site is a community-driven resource for learning about Bitcoin. Here’s how it works:</p>
+                <ul>
+                    <li>It’s collectively developed and updated live every 24 hours.</li>
+                    <li>Anyone can submit a change on <a href="https://github.com/AnonymousBitcoinClub/collective-website">GitHub</a>.</li>
+                    <li>We aim to build an informational site with inputs from multiple communities.</li>
+                    <li>We welcome contributions on topics like mining, coding, sat hunting, ordinals, stamps, XCP, and more.</li>
+                </ul>
+            </section>
+        </div>
+        <div class="section-divider"></div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Contribute on GitHub</a>
+            <a href="mailto:contact@allaboutbtc.com">Contact Us</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="contributors.html">Contributors</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://x.com" target="_blank">X</a>
+            <a href="https://discord.gg/CTNuYsbr3K" target="_blank">Discord</a>
+        </div>
+        <div class="open-source-badge">
+            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Open Source</a>
+        </div>
+    </footer>
+
+    <script src="search.js"></script>
+    <script>
+        window.onload = searchSite;
+    </script>
 </body>
 </html>
