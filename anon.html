@@ -5,21 +5,39 @@
   <title>Anonymous Art on Bitcoin</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+<script>
+  const text = "Every sat is a stroke of the artist's brush. We just inscribe our truths.";
+  let i = 0;
+  let typing = true;
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 40);
+    } else {
+      typing = false;
+    }
+  }
+
+  window.onload = typeWriter;
+</script>
+
+
 <body class="anon-page">
 
-  <div class="anon-container">
-    <h1>Anonymous Art on Bitcoin</h1>
-    <p>A quiet rebellion. A signal beneath the noise.</p>
-    <p>This is a collection born from cypherpunk roots — inscribed into Bitcoin, unowned, unsigned, unafraid.</p>
-
-    <!-- You can add art previews below -->
-    <div class="anon-art-gallery">
-      <img src="assets/art1.png" alt="Anon Art 1">
-      <img src="assets/art2.png" alt="Anon Art 2">
-    </div>
-
-    <p><em>Each piece a message. Each mask a memory.</em></p>
+ <div class="terminal-shell">
+  <div class="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">anon@btc:/art$</span>
   </div>
+  <div class="terminal-body">
+    <p id="typewriter"></p><span class="blinking-cursor">█</span>
+  </div>
+</div>
+
 
 </body>
 </html>

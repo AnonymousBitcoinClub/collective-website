@@ -348,7 +348,82 @@ body {
 .anon-art-gallery img:hover {
   transform: scale(1.05);
 }
+.terminal-shell {
+  background-color: #0b0f0d;
+  color: #00ff88;
+  font-family: "Courier New", Courier, monospace;
+  padding: 0;
+  margin: 60px auto;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+}
 
+.terminal-header {
+  background-color: #1a1a1a;
+  padding: 10px 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.terminal-title {
+  color: #cccccc;
+  font-size: 0.85rem;
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.terminal-body {
+  padding: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.blinking-cursor {
+  font-weight: bold;
+  font-size: 1rem;
+  animation: blink 1s infinite step-start;
+  color: #00ff88;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Old terminal style (no longer used)
+.terminal-type {
+  background-color: #000;
+  color: #00ff88;
+  font-family: "Courier New", Courier, monospace;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*
 /*body {
   background-color: #0d0d0d;
   background-image:
