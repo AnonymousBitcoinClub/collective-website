@@ -317,6 +317,37 @@ body {
 #rabbit-wrapper:hover #rabbit-popup {
   display: block;
 }
+.anon-page {
+  background-color: #0d0d0d;
+  color: white;
+  font-family: monospace;
+  padding: 40px;
+}
+
+.anon-container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.anon-art-gallery {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.anon-art-gallery img {
+  width: 180px;
+  height: auto;
+  border: 2px solid #f7931a;
+  box-shadow: 0 0 12px rgba(255, 123, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.anon-art-gallery img:hover {
+  transform: scale(1.05);
+}
 
 /*body {
   background-color: #0d0d0d;
