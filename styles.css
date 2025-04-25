@@ -409,6 +409,51 @@ body {
   }
 }
 
+
+/* 🔶 Glowing animated site title */
+.glow-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #f7931a, #ffae42, #f7931a);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 4s linear infinite;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@keyframes shine {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+/* ₿ Bitcoin watermark background */
+body::after {
+  content: "₿";
+  font-size: 300px;
+  color: rgba(255, 123, 0, 0.02);
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  z-index: 0;
+  pointer-events: none;
+  font-family: monospace;
+}
+
+/* 🧠 Section title styling */
+.section-title {
+  font-family: monospace;
+  font-size: 1.4rem;
+  color: #f7931a;
+  border-bottom: 1px dashed rgba(255,255,255,0.2);
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 /* Old terminal style (no longer used)
 .terminal-type {
   background-color: #000;
