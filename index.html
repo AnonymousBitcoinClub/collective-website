@@ -38,6 +38,10 @@
 		    <p>Your community-driven resource for learning about Bitcoin, its technology, and its impact. Explore, contribute, and join the conversation!</p>
 		    <a href="https://github.com/AnonymousBitcoinClub/collective-website" class="cta-button">Contribute on GitHub</a>
 		</div>
+	
+	<div class="founder-quote">
+	<p id="quote"></p>
+	</div>
 
     <main>
         <div class="section">
@@ -144,6 +148,25 @@
     <img src="assets/white-rabbit.png" alt="Follow the white rabbit" id="white-rabbit">
   </a>
 </div>
+<script>
+  const quotes = [
+    "It's very attractive to the libertarian viewpoint if we can explain it properly. — Satoshi Nakamoto",
+    "Running a node isn't a waste. It's an act of self-sovereignty. — Hal Finney",
+    "Bitcoin is an implementation of Wei Dai’s b-money proposal on Cypherpunks. — Satoshi Nakamoto",
+    "A blockchain is a timestamped chain of hash-based proof-of-work. — Hal Finney",
+    "We can win a major battle in the arms race and gain a new territory of freedom for several years. — Satoshi Nakamoto",
+    "I see Bitcoin as a new and potentially powerful technology, but one that should be approached with caution. — Hal Finney",
+    "Hashcash was invented to combat spam, but its potential for money was always there. — Adam Back"
+  ];
+
+  function showRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById('quote').textContent = quotes[randomIndex];
+  }
+
+  showRandomQuote();
+  setInterval(showRandomQuote, 15000); // Change every 15 seconds
+</script>
 
 
 </body>
