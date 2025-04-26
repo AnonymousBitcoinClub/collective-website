@@ -453,6 +453,26 @@ body::after {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.founder-quote {
+  margin-top: 30px;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #00ff00;
+  text-align: center;
+  padding: 10px;
+  border-left: 3px solid #00ff00;
+  border-right: 3px solid #00ff00;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
 
 /* Old terminal style (no longer used)
 .terminal-type {
@@ -488,16 +508,4 @@ body::after {
   }
 }
 /*
-.founder-quote {
-  margin-top: 30px;
-  font-style: italic;
-  font-size: 1.2rem;
-  color: #00ff00;
-  text-align: center;
-  padding: 10px;
-  border-left: 3px solid #00ff00;
-  border-right: 3px solid #00ff00;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
