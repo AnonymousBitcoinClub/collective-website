@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>All About BTC</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -10,78 +14,67 @@
     <header>
         <<h1 class="glow-header">All About BTC</h1>
 
-				<nav class="sticky-nav">
-				    <ul>
-
-				        <li>
-				            <div class="dropdown">
-				                <a href="#resources" class="dropbtn">Resources</a>
-				                <div class="dropdown-content">
-													<a href="projects/index.html">Active Projects</a>
-				                    <a href="wallets.html">Wallets</a>
-				                    <a href="exchanges.html">Exchanges</a>
-				                    <a href="mining-guides.html">Mining Guides</a>
-				                    <a href="whitepapers.html">Whitepapers</a>
-				                </div>
-				            </div>
-				        </li>
-				        <li><a href="news.html">News</a></li>
-				        <li><a href="merchandise.html">Merchandise</a></li>
-				        <li><a href="mining-sim.html">Ordinal Miners Mining Sim</a></li>
-				        <li><a href="https://github.com/cypherpunklab">Cypherpunk Lab</a></li>
-				    </ul>
-				    <input type="text" id="searchBar" placeholder="Search..." onkeyup="searchSite()">
-				</nav>
+        <nav class="sticky-nav">
+            <ul>
+                <li>
+                    <div class="dropdown">
+                        <a href="#resources" class="dropbtn">Resources</a>
+                        <div class="dropdown-content">
+                            <a href="projects/index.html">Active Projects</a>
+                            <a href="wallets.html">Wallets</a>
+                            <a href="exchanges.html">Exchanges</a>
+                            <a href="mining-guides.html">Mining Guides</a>
+                            <a href="whitepapers.html">Whitepapers</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+                <li><a href="mining-sim.html">Ordinal Miners Mining Sim</a></li>
+                <li><a href="https://github.com/cypherpunklab">Cypherpunk Lab</a></li>
+            </ul>
+            <input type="text" id="searchBar" placeholder="Search..." onkeyup="searchSite()">
+        </nav>
     </header>
 
-		<div class="hero">
-		    <h2>Welcome to All About BTC</h2>
-		    <p>Your community-driven resource for learning about Bitcoin, its technology, and its impact. Explore, contribute, and join the conversation!</p>
-		    <a href="https://github.com/AnonymousBitcoinClub/collective-website" class="cta-button">Contribute on GitHub</a>
-		</div>
+    <div class="hero">
+        <h2>Welcome to All About BTC</h2>
+        <p>Your community-driven resource for learning about Bitcoin, its technology, and its impact. Explore, contribute, and join the conversation!</p>
+        <a href="https://github.com/AnonymousBitcoinClub/collective-website" class="cta-button">Contribute on GitHub</a>
+    </div>
 
-	<div class="founder-quote">
-	<p id="quote"></p>
-	</div>
+    <div class="founder-quote">
+        <p id="quote"></p>
+    </div>
 
     <main>
         <div class="section">
             <section>
                 <h2 class="section-title">📡 Latest News</h2>
-
                 <p>President Trump’s promise to pardon Ross Ulbricht sparks discussions in the Bitcoin community. <a href="news.html">Read more</a>.</p>
             </section>
         </div>
+
         <div class="section-divider"></div>
 
         <div class="section">
             <section id="what-is-bitcoin">
                 <h2>What is Bitcoin?</h2>
-                <p>Bitcoin is a decentralized peer to peer network protocol developed out of the <a href="https://www.cypherpunkghosts.com/cypherpunkswritecode">Cypherpunks movement</a> which implements a public digital ledger. The Bitcoin cryptocurrency exists without a central bank or single administrator, and can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries.</p>
-                <p>Bitcoin is often referred to as a <a href="glossary.html#cryptocurrency"><strong>cryptocurrency</strong></a>, as it uses cryptography to secure and verify transactions on the network.</p>
-                <p>Bitcoin is a framework upon which efforts like the <a href="https://docs.ordinals.com/">Ordinals Protocol</a> can be built, allowing for the creation and onchain storage of digital artifacts including art, games, documents, coding libraries and more.</p>
+                <p>Bitcoin is a decentralized peer to peer network protocol developed out of the <a href="https://www.cypherpunkghosts.com/cypherpunkswritecode">Cypherpunks movement</a> which implements a public digital ledger.</p>
+                <p>Bitcoin is often referred to as a <a href="glossary.html#cryptocurrency"><strong>cryptocurrency</strong></a>.</p>
+                <p>Bitcoin is a framework upon which efforts like the <a href="https://docs.ordinals.com/">Ordinals Protocol</a> can be built.</p>
             </section>
         </div>
+
         <div class="section-divider"></div>
 
         <div class="section">
             <section id="how-it-works">
                 <h2>How it Works</h2>
                 <p><a href="#mining-explained">Mining Explained</a> | <a href="#what-are-nodes">What Are Nodes?</a> | <a href="#understanding-wallets">Understanding Wallets</a></p>
-                <div id="mining-explained">
-                    <h3>Mining Explained</h3>
-                    <p>Bitcoin mining is the process of validating transactions by solving complex mathematical problems...</p>
-                </div>
-                <div id="what-are-nodes">
-                    <h3>What Are Nodes?</h3>
-                    <p>Nodes are computers in the Bitcoin network that maintain a copy of the <a href="glossary.html#blockchain"><strong>blockchain</strong></a>...</p>
-                </div>
-                <div id="understanding-wallets">
-                    <h3>Understanding Wallets</h3>
-                    <p>A Bitcoin wallet stores your <a href="glossary.html#private-keys"><strong>private keys</strong></a>, allowing you to send and receive Bitcoin...</p>
-                </div>
             </section>
         </div>
+
         <div class="section-divider"></div>
 
         <div class="section">
@@ -89,37 +82,36 @@
                 <h2>Why Use Bitcoin</h2>
                 <ul>
                     <li>Bitcoin offers fast and secure transactions</li>
-                    <li>Bitcoin is decentralized, meaning it is not controlled by any government or financial institution</li>
-                    <li>Bitcoin transactions are transparent, as all transactions are recorded on the <a href="glossary.html#blockchain"><strong>blockchain</strong></a></li>
-                    <li>Bitcoin can be used for international payments, without the need for currency conversion</li>
+                    <li>Bitcoin is decentralized</li>
+                    <li>Bitcoin transactions are transparent</li>
+                    <li>Bitcoin enables global payments</li>
                 </ul>
             </section>
         </div>
+
         <div class="section-divider"></div>
 
         <div class="section">
             <section id="faq">
                 <h2>FAQ</h2>
                 <h3>Is Bitcoin anonymous?</h3>
-                <p>Bitcoin is pseudonymous, not fully anonymous. Transactions are recorded on the <a href="glossary.html#blockchain"><strong>blockchain</strong></a>, but identities can sometimes be traced...</p>
-                <h3>How do I store Bitcoin safely?</h3>
-                <p>Use a hardware wallet (e.g., Ledger or Trezor) and keep your <a href="glossary.html#private-keys"><strong>private keys</strong></a> offline...</p>
+                <p>Bitcoin is pseudonymous, not fully anonymous.</p>
             </section>
         </div>
+
         <div class="section-divider"></div>
 
         <div class="section">
             <section id="about-this-site">
                 <h2>About This Site</h2>
-                <p>This site is a community-driven resource for learning about Bitcoin. Here’s how it works:</p>
                 <ul>
-                    <li>It’s collectively developed and updated live every 24 hours.</li>
-                    <li>Anyone can submit a change on <a href="https://github.com/AnonymousBitcoinClub/collective-website">GitHub</a>.</li>
-                    <li>We aim to build an informational site with inputs from multiple communities.</li>
-                    <li>We welcome contributions on topics like mining, coding, sat hunting, ordinals, stamps, XCP, and more.</li>
+                    <li>Collectively developed</li>
+                    <li>Open-source contributions</li>
+                    <li>Multi-community collaboration</li>
                 </ul>
             </section>
         </div>
+
         <div class="section-divider"></div>
     </main>
 
@@ -127,48 +119,33 @@
         <div class="footer-links">
             <a href="https://github.com/AnonymousBitcoinClub/collective-website">Contribute on GitHub</a>
             <a href="mailto:contact@allaboutbtc.com">Contact Us</a>
-            <a href="#privacy-policy">Privacy Policy</a>
             <a href="contributors.html">Contributors</a>
-        </div>
-        <div class="social-icons">
-            <a href="https://x.com" target="_blank">X</a>
-            <a href="https://discord.gg/CTNuYsbr3K" target="_blank">Discord</a>
-        </div>
-        <div class="open-source-badge">
-            <a href="https://github.com/AnonymousBitcoinClub/collective-website">Open Source</a>
         </div>
     </footer>
 
     <script src="search.js"></script>
+
+    <!-- 🐇 White Rabbit Easter Egg -->
+    <div id="rabbit-wrapper">
+        <a href="anon.html">
+            <img src="assets/white-rabbit.png" alt="Follow the white rabbit" id="white-rabbit">
+        </a>
+    </div>
+
     <script>
-        window.onload = searchSite;
+        const quotes = [
+            "It's very attractive to the libertarian viewpoint if we can explain it properly — Satoshi Nakamoto",
+            "Running a node isn't a waste. It's an act of self-sovereignty. — Hal Finney",
+            "Bitcoin is an implementation of Wei Dai’s b-money proposal on Cypherpunks. — Satoshi Nakamoto"
+        ];
+
+        function showRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').textContent = quotes[randomIndex];
+        }
+
+        showRandomQuote();
+        setInterval(showRandomQuote, 15000);
     </script>
-	<!-- 🐇 White Rabbit Easter Egg -->
-	<div id="rabbit-wrapper">
-  <a href="anon.html">
-    <img src="assets/white-rabbit.png" alt="Follow the white rabbit" id="white-rabbit">
-  </a>
-</div>
-<script>
-  const quotes = [
-    "It's very attractive to the libertarian viewpoint if we can explain it properly — Satoshi Nakamoto",
-    "Running a node isn't a waste. It's an act of self-sovereignty. — Hal Finney",
-    "Bitcoin is an implementation of Wei Dai’s b-money proposal on Cypherpunks. — Satoshi Nakamoto",
-    "A blockchain is a timestamped chain of hash-based proof-of-work. — Hal Finney",
-    "We can win a major battle in the arms race and gain a new territory of freedom for several years. — Satoshi Nakamoto",
-    "I see Bitcoin as a new and potentially powerful technology, but one that should be approached with caution. — Hal Finney",
-    "Hashcash was invented to combat spam, but its potential for money was always there. — Adam Back"
-  ];
-
-  function showRandomQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    document.getElementById('quote').textContent = quotes[randomIndex];
-  }
-
-  showRandomQuote();
-  setInterval(showRandomQuote, 15000); // Change every 15 seconds
-</script>
-
-
 </body>
 </html>
