@@ -72,6 +72,16 @@
       margin-bottom: 0.5rem;
     }
 
+    .project-type {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      margin-bottom: 0.6rem;
+    }
+
     .project-message {
       font-size: 0.9rem;
       margin-bottom: 0.75rem;
@@ -115,6 +125,18 @@
 
     <section class="projects-controls">
       <input id="project-search" type="search" placeholder="Filter by name or description…" />
+
+      <select id="project-type">
+        <option value="all">All types</option>
+        <option value="ordinal">Ordinals</option>
+        <option value="counterparty">Counterparty</option>
+        <option value="stamp">Stamps</option>
+        <option value="lightning">Lightning</option>
+        <option value="nostr">Nostr</option>
+        <option value="bitcoin">Bitcoin</option>
+        <option value="other">Other</option>
+      </select>
+
       <select id="project-sort">
         <option value="alpha">Name (A → Z)</option>
         <option value="start-newest">Start date (newest first)</option>
@@ -125,24 +147,32 @@
     <section class="projects-grid" id="projects-grid">
 
       <!-- Anonymous Bitcoin Club -->
-      <article class="project-card" data-name="anonymous bitcoin club" data-start="2021-01-01">
-        <img src="anonymous-bitcoin-club/anon-logo-gif.gif" class="project-banner" />
+      <article class="project-card"
+               data-name="anonymous bitcoin club"
+               data-start="2021-01-01"
+               data-type="ordinal">
+        <img src="anonymous-bitcoin-club/anon-logo-gif.gif" class="project-banner" alt="Anonymous Bitcoin Club banner" />
         <h2 class="project-name">Anonymous Bitcoin Club</h2>
         <div class="project-meta">Active since: January 1, 2021</div>
+        <div class="project-type">Ordinals</div>
         <p class="project-message">
           A cypherpunk-inspired collective building Bitcoin-first tools, art, and education.
         </p>
         <div class="project-links">
           <a href="anonymous-bitcoin-club/index.html">More info</a>
-          <a href="https://anonymousbitcoinclub.com" target="_blank">Visit site</a>
+          <a href="https://anonymousbitcoinclub.com" target="_blank" rel="noopener">Visit site</a>
         </div>
       </article>
 
       <!-- Bitcoin Worms -->
-      <article class="project-card" data-name="bitcoin worms" data-start="2024-01-01">
-        <img src="bitcoin-worms/bitcoinworms.png" class="project-banner" />
+      <article class="project-card"
+               data-name="bitcoin worms"
+               data-start="2024-01-01"
+               data-type="ordinal">
+        <img src="bitcoin-worms/bitcoinworms.png" class="project-banner" alt="Bitcoin Worms banner" />
         <h2 class="project-name">Bitcoin Worms</h2>
         <div class="project-meta">Active since: 2024</div>
+        <div class="project-type">Ordinals</div>
         <p class="project-message">
           A children’s story turned on-chain SVG art experiment. Bitcoin Worms explores ultra-low
           cost self-inscription, open-source tooling, and creative expression secured on Bitcoin.
@@ -155,8 +185,8 @@
     </section>
 
     <p class="projects-note">
-      To add your project, open a pull request that creates a folder in <code>projects/</code>
-      and adds a project card here.
+      To add your project, open a pull request that creates a folder in <code>projects/</code>,
+      adds a project card here, and sets a <code>data-type</code> (ordinal, counterparty, stamp, etc).
     </p>
   </main>
 
@@ -165,19 +195,31 @@
       const cards = Array.from(document.querySelectorAll('.project-card'));
       const search = document.getElementById('project-search');
       const sort = document.getElementById('project-sort');
+      const type = document.getElementById('project-type');
 
       function apply() {
-        const q = search.value.toLowerCase();
+        const q = (search.value || '').toLowerCase().trim();
         const mode = sort.value;
+        const selectedType = (type.value || 'all').toLowerCase().trim();
 
+        // Filter by search + type
         cards.forEach(c => {
-          c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none';
+          const textMatch = c.textContent.toLowerCase().includes(q);
+          const cardType = (c.dataset.type || '').toLowerCase().trim();
+          const typeMatch = (selectedType === 'all') || (cardType === selectedType);
+          c.style.display = (textMatch && typeMatch) ? '' : 'none';
         });
 
+        // Sort visible
         const visible = cards.filter(c => c.style.display !== 'none');
         visible.sort((a, b) => {
           if (mode === 'alpha') return a.dataset.name.localeCompare(b.dataset.name);
-          return new Date(b.dataset.start) - new Date(a.dataset.start);
+
+          const aDate = new Date(a.dataset.start || '1970-01-01');
+          const bDate = new Date(b.dataset.start || '1970-01-01');
+
+          if (mode === 'start-oldest') return aDate - bDate;
+          return bDate - aDate; // start-newest default
         });
 
         visible.forEach(c => c.parentNode.appendChild(c));
@@ -185,6 +227,7 @@
 
       search.addEventListener('input', apply);
       sort.addEventListener('change', apply);
+      type.addEventListener('change', apply);
       apply();
     })();
   </script>
