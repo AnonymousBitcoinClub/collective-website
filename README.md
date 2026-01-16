@@ -1,5 +1,7 @@
 Welcome to the official GitHub repository for https://AllAboutBTC.com, an open-source website dedicated to providing information and resources about Bitcoin.
 
+The website https://AllAboutBTC.com clones this repo every hour for updates.
+
 **Purpose**
 The purpose of this website is to educate individuals about Bitcoin and provide resources for those interested in investing, trading, using and/or building on Bitcoin. This website is open-source, meaning anyone can contribute to its development and maintenance.
 
