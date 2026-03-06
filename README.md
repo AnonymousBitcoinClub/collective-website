@@ -25,3 +25,40 @@ All content contributed to https://AllAboutBTC.com should be legal and free from
 
 **Contributing**
 We welcome contributions from the community and encourage anyone interested in contributing to review our Contribution Guidelines before submitting a pull request.
+
+## Adding Your Project to the Active Projects Page
+
+The Active Projects directory is at [/projects/index.html](https://anonymousbitcoinclub.github.io/collective-website/projects/index.html). It showcases Bitcoin-related projects in a simple, community-maintained list.
+
+To add your project:
+
+1. **Fork this repository**  
+   https://github.com/AnonymousBitcoinClub/collective-website
+
+2. **Create a new folder** inside the `/projects/` directory.  
+   - Choose a short, URL-friendly slug (lowercase, hyphens instead of spaces, e.g. `my-bitcoin-tool`, `ordinal-art-series`).  
+   - This becomes the subpath, like `/projects/my-bitcoin-tool/`.
+
+3. **Add your project page as `index.html`** inside your new folder.  
+   - This file contains the full content for your project: name, description, active since date, category, any images/banners/GIFs, links (website, repo, X, etc.), and whatever else you want displayed.  
+   - Style it to match the existing look (simple HTML with headings, paragraphs, `<img>` tags for assets in the same folder, etc.).  
+   - Example assets from existing projects: logos (`anon-logo-gif.gif`), banners (`anonymous-bitcoin-club-banner.png`), animations (`burn-gif.gif`). Reference them relatively, e.g. `<img src="my-logo.png" alt="Project Logo">`.  
+   - Keep it clean and Bitcoin-themed—cypherpunk vibes encouraged!
+
+4. **Update the main projects list** — Edit `/projects/index.html`.  
+   - Add a new entry for your project in the same format/style as the existing ones (e.g. Anonymous Bitcoin Club, Bitcoin Worms).  
+   - This typically means adding a block with: project name, active since, category (with data-type if used, like ordinal/counterparty/stamp), short description, and a link to your subfolder (e.g. `<a href="./my-bitcoin-tool/">View Project</a>` or embed/inline the content if that's how it's structured).  
+   - Match the HTML pattern exactly from the current entries to keep the page consistent.
+
+5. **Commit and open a Pull Request**.  
+   - Title: "Add [Your Project Name] to Active Projects"  
+   - Description: Briefly explain your project, why it's Bitcoin-relevant, and any notes (e.g. "Uses relative paths for images in /projects/my-bitcoin-tool/").  
+   - Include screenshots if helpful.
+
+Once merged, your project will appear on the Active Projects page (and propagate to clones like AllAboutBTC.com after their next hourly pull).
+
+We welcome Bitcoin-native projects: tools, Ordinals/Counterparty/Rune/Stamp art & protocols, education, wallets, cypherpunk collectives, experiments, and more.
+
+Questions or unsure about markup? Open an issue first—we're happy to help review drafts.
+
+Thanks for building on Bitcoin with the collective!
