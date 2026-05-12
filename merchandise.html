@@ -136,12 +136,13 @@
     }
 
     function rotateSponsors() {
-        const slides = document.querySelectorAll('.banner-slide');
-        if (slides.length === 0) return;
-
         let current = 0;
+
         setInterval(() => {
-            slides[current].classList.remove('active');
+            const slides = document.querySelectorAll('.banner-slide');
+            if (slides.length === 0) return;
+
+            slides.forEach(slide => slide.classList.remove('active'));
             current = (current + 1) % slides.length;
             slides[current].classList.add('active');
         }, 6000);
@@ -150,7 +151,7 @@
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
         renderSponsors();
-        rotateSponsors();
+        setTimeout(rotateSponsors, 500);   // Give time for DOM to update
     });
     </script>
 </body>

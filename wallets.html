@@ -83,65 +83,66 @@
 
     <script src="search.js"></script>
     <script>
-  // Sponsor list
-  const sponsors = [
-      {
-          name: "Bitcoin Jake",
-          url: "https://x.com/GithubJake09",
-          image: "sponsors/sponsor1-800x120.png",
-          alt: "Bitcoin Jake"
-      },
-      {
-          name: "Anonymous Bitcoin Club",
-          url: "https://discord.gg/ugedUx7Sru",
-          image: "sponsors/sponsor2-800x120.png",
-          alt: "Anonymous Bitcoin Club"
-      },
-      {
-          name: "Sponsor Us",
-          url: "https://discord.gg/ugedUx7Sru",
-          image: "sponsors/sponsor3-800x120.png",
-          alt: "Become a Sponsor"
-      }
-  ];
+    // Sponsor list
+    const sponsors = [
+        {
+            name: "Bitcoin Jake",
+            url: "https://x.com/GithubJake09",
+            image: "sponsors/sponsor1-800x120.png",
+            alt: "Bitcoin Jake"
+        },
+        {
+            name: "Anonymous Bitcoin Club",
+            url: "https://discord.gg/ugedUx7Sru",
+            image: "sponsors/sponsor2-800x120.png",
+            alt: "Anonymous Bitcoin Club"
+        },
+        {
+            name: "Sponsor Us",
+            url: "https://discord.gg/ugedUx7Sru",
+            image: "sponsors/sponsor3-800x120.png",
+            alt: "Become a Sponsor"
+        }
+    ];
 
-  function renderSponsors() {
-      const container = document.getElementById('bannerSlides');
-      if (!container) return;
+    function renderSponsors() {
+        const container = document.getElementById('bannerSlides');
+        if (!container) return;
 
-      container.innerHTML = '';
+        container.innerHTML = '';
 
-      sponsors.forEach((sponsor, index) => {
-          const slide = document.createElement('div');
-          slide.className = 'banner-slide';
-          if (index === 0) slide.classList.add('active');
+        sponsors.forEach((sponsor, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'banner-slide';
+            if (index === 0) slide.classList.add('active');
 
-          slide.innerHTML = `
-              <a href="${sponsor.url}" target="_blank" rel="noopener noreferrer">
-                  <img src="${sponsor.image}" alt="${sponsor.alt}" loading="lazy">
-              </a>
-          `;
-          container.appendChild(slide);
-      });
-  }
+            slide.innerHTML = `
+                <a href="${sponsor.url}" target="_blank" rel="noopener noreferrer">
+                    <img src="${sponsor.image}" alt="${sponsor.alt}" loading="lazy">
+                </a>
+            `;
+            container.appendChild(slide);
+        });
+    }
 
-  function rotateSponsors() {
-      const slides = document.querySelectorAll('.banner-slide');
-      if (slides.length === 0) return;
+    function rotateSponsors() {
+        let current = 0;
 
-      let current = 0;
-      setInterval(() => {
-          slides[current].classList.remove('active');
-          current = (current + 1) % slides.length;
-          slides[current].classList.add('active');
-      }, 6000);
-  }
+        setInterval(() => {
+            const slides = document.querySelectorAll('.banner-slide');
+            if (slides.length === 0) return;
 
-  // Initialize
-  document.addEventListener('DOMContentLoaded', () => {
-      renderSponsors();
-      rotateSponsors();
-  });
-  </script>
+            slides.forEach(slide => slide.classList.remove('active'));
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 6000);
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        renderSponsors();
+        setTimeout(rotateSponsors, 500);   // Give time for DOM to update
+    });
+    </script>
 </body>
 </html>
