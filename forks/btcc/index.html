@@ -4,28 +4,153 @@
   <meta charset="UTF-8" />
   <title>Bitcoin Core (BTCC) — All About BTC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bitcoin Core (BTCC) was a 2018 cryptocurrency that forked from Bitcoin Clashic (itself a BCH-derived chain). It is not the Bitcoin Core software. History, block heights, and technical changes." />
   <link rel="icon" type="image/png" href="../../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css" />
+
   <style>
-    .placeholder-page {
-      max-width: 800px;
+    .fork-detail {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .fork-detail h1 {
+      margin-bottom: 0.35rem;
       text-align: center;
     }
-    .placeholder-page h1 {
-      margin-bottom: 1rem;
-    }
-    .placeholder-page p {
+
+    .fork-subtitle {
+      text-align: center;
       opacity: 0.85;
+      margin-bottom: 1.5rem;
       font-size: 1.05rem;
     }
+
+    .warning-box {
+      background: rgba(255, 98, 0, 0.1);
+      border: 1px solid rgba(255, 98, 0, 0.45);
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 2.25rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .warning-box strong {
+      color: var(--secondary-accent);
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .meta-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+    }
+
+    .meta-card .label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.65;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta-card .value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary-accent);
+    }
+
+    .section {
+      margin-bottom: 2.25rem;
+    }
+
+    .section h2 {
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 98, 0, 0.35);
+      padding-bottom: 0.35rem;
+    }
+
+    .section p, .section li {
+      line-height: 1.6;
+      opacity: 0.92;
+    }
+
+    .section ul {
+      padding-left: 1.3rem;
+    }
+
+    .section li {
+      margin-bottom: 0.45rem;
+    }
+
+    .lineage {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--secondary-accent);
+      padding: 1rem 1.2rem;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .lineage code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .tech-table th,
+    .tech-table td {
+      text-align: left;
+      padding: 0.55rem 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tech-table th {
+      color: var(--secondary-accent);
+      font-weight: 700;
+      width: 42%;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
     .back-link {
       display: inline-block;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: var(--secondary-accent);
       font-size: 0.95rem;
+    }
+
+    .note {
+      margin-top: 2.5rem;
+      padding: 1rem 1.15rem;
+      border-left: 3px solid var(--secondary-accent);
+      background: rgba(255, 98, 0, 0.06);
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -39,7 +164,7 @@
             <a href="#resources" class="dropbtn">Resources</a>
             <div class="dropdown-content">
               <a href="../../projects/index.html">Active Projects</a>
-              <a href="../index.html">Historical Forks</a>
+              <a href="../../forks.html">Historical Forks</a>
               <a href="../../wallets.html">Wallets</a>
               <a href="../../exchanges.html">Exchanges</a>
               <a href="../../mining-guides.html">Mining Guides</a>
@@ -56,10 +181,176 @@
     </nav>
   </header>
 
-  <main class="placeholder-page">
-    <a class="back-link" href="../index.html">← Back to Historical Forks</a>
+  <main class="fork-detail">
+    <a class="back-link" href="../../forks.html">← Back to Historical Forks</a>
+
     <h1>Bitcoin Core (BTCC)</h1>
-    <p>Page under construction.</p>
+    <p class="fork-subtitle">A 2018 cryptocurrency fork — <em>not</em> the Bitcoin Core software</p>
+
+    <div class="warning-box">
+      <strong>Important distinction:</strong> Bitcoin Core (BTCC) is a separate cryptocurrency that appeared in 2018.
+      It has <strong>no relation</strong> to the official Bitcoin Core reference client (the software most people run for Bitcoin).
+      The name was deliberately chosen during the heated “Bitcoin vs Bitcoin Cash” branding disputes of 2017–2018.
+    </div>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <span class="label">Primary Fork Date</span>
+        <span class="value">~May / June 2018</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">From Clashic Block</span>
+        <span class="value">~576,698</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Parent Lineage</span>
+        <span class="value">BCH → Clashic</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Ticker</span>
+        <span class="value">BTCC</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Later Hard Fork</span>
+        <span class="value">Block 588,672</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Status</span>
+        <span class="value">Rebranded / sunset</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>
+        Bitcoin Core (BTCC) was a cryptocurrency project that emerged in mid-2018 from the
+        Bitcoin Clashic (BCL / BCHC) chain. Clashic itself was a minority continuation of the
+        original Bitcoin Cash rules after the November 2017 Bitcoin Cash difficulty-adjustment
+        hard fork.
+      </p>
+      <p>
+        The project marketed itself as a return to “Core values,” emphasizing on-chain scaling,
+        faster blocks, and privacy features. In practice it functioned as both a technical
+        experiment and a pointed response to the branding conflict in which some Bitcoin Cash
+        advocates referred to the original Bitcoin chain as “Bitcoin Core.”
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Chain Lineage</h2>
+      <p>BTCC sits several hard forks away from the original Bitcoin blockchain:</p>
+
+      <div class="lineage">
+        <strong>BTC</strong> → block <code>478,558 / 478,559</code> (1 Aug 2017)<br>
+        → <strong>Bitcoin Cash (BCH)</strong><br><br>
+
+        <strong>BCH</strong> → ~block <code>504,031</code> (Nov 2017 DAA fork)<br>
+        → majority chain continued as BCH; minority chain became <strong>Bitcoin Clashic (BCL / BCHC)</strong><br><br>
+
+        <strong>Bitcoin Clashic</strong> → ~block <code>576,698</code> (May/June 2018)<br>
+        → <strong>Bitcoin Core (BTCC)</strong><br><br>
+
+        <strong>BTCC</strong> itself hard-forked again at block <code>588,672</code> (≈ 16 Aug 2018)
+        to change block time, reward, and difficulty adjustment.
+      </div>
+
+      <p>
+        Because of this multi-step history, simply holding BTC or even BCH at the original
+        2017 forks did <em>not</em> automatically produce BTCC. Coins had to remain on the
+        Clashic branch through the later upgrade.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Key Technical Changes (Aug 2018 Hard Fork)</h2>
+      <p>
+        At block height <strong>588,672</strong> the project activated a significant protocol
+        upgrade (client version ~0.16.2):
+      </p>
+      <ul>
+        <li><strong>1-minute block target</strong> (1,440 blocks per day) instead of the traditional ~10-minute interval.</li>
+        <li>Block reward adjusted to <strong>1.25 BTCC</strong> to keep daily issuance roughly consistent with the old schedule.</li>
+        <li>New, more reactive difficulty adjustment algorithm (30-period DAA with emergency rules for sudden hashrate changes).</li>
+        <li>PROTOCOL_VERSION raised (to 80030); older nodes were disconnected before the fork.</li>
+        <li>Larger effective block capacity (project materials advertised up to 8 MB).</li>
+      </ul>
+      <p>
+        The project also claimed “privacy by default” features and positioned itself as an
+        on-chain scaling alternative that would complement rather than replace Bitcoin.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Technical Snapshot</h2>
+      <table class="tech-table">
+        <tr>
+          <th>Algorithm</th>
+          <td>SHA-256 (ASIC-compatible)</td>
+        </tr>
+        <tr>
+          <th>Origin codebase</th>
+          <td>Descended from Bitcoin ABC → Bitcoin Clashic</td>
+        </tr>
+        <tr>
+          <th>Block time (post-588672)</th>
+          <td>~1 minute</td>
+        </tr>
+        <tr>
+          <th>Block reward (post-588672)</th>
+          <td>1.25 BTCC (subject to later halvings on adjusted schedule)</td>
+        </tr>
+        <tr>
+          <th>Replay / chain protection</th>
+          <td>Inherited and extended from Clashic / BCH lineage</td>
+        </tr>
+        <tr>
+          <th>Notable early block</th>
+          <td>At height 552,393 the project claimed a ~8 MB block (pre-1-min fork)</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Historical Context &amp; Reception</h2>
+      <p>
+        BTCC appeared near the end of the 2017–2018 wave of Bitcoin-named forks. By mid-2018
+        market attention and liquidity for most of these projects had already declined sharply.
+        Contemporary coverage often described the coin as a deliberate naming provocation aimed
+        at Bitcoin Cash advocates who used “Bitcoin Core” as a pejorative for the original chain.
+      </p>
+      <p>
+        The project maintained a presence on Bitcointalk, GitHub, and short-lived websites
+        (thebitcoincore.org / bitcoincore.cm). It later announced a rebrand / migration toward
+        a project called <strong>Title Network</strong>, after which the original “Bitcoin Core
+        (BTCC)” branding was effectively sunset.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Later Status</h2>
+      <p>
+        The original Bitcoin Core Squared / bitcoin-cored repositories were marked deprecated.
+        Development attention shifted to Title Network. As with many of the lesser-known 2018
+        forks, public infrastructure (explorers, exchanges, wallets) largely disappeared over time.
+        Any remaining chain activity should be treated as historical or experimental.
+      </p>
+    </section>
+
+    <section class="section links">
+      <h2>Resources &amp; Archives</h2>
+      <p>
+        <a href="https://github.com/bitcoin-cored/bitcoin-cored" target="_blank" rel="noopener">GitHub (bitcoin-cored – deprecated)</a>
+        <a href="https://web.archive.org/web/20180530211815/https://bitcoincore.cm/" target="_blank" rel="noopener">Archived website (2018)</a>
+        <a href="https://bitcointalk.org/index.php?topic=4355946.0" target="_blank" rel="noopener">Bitcointalk announcement thread</a>
+      </p>
+    </section>
+
+    <div class="note">
+      <strong>Note:</strong> This page documents a historical cryptocurrency fork. It is
+      <em>not</em> affiliated with, and should never be confused with, the Bitcoin Core
+      reference implementation maintained at bitcoin.org / bitcoincore.org. Always verify
+      software and websites carefully — many projects from this era reused familiar names.
+    </div>
   </main>
 
   <footer>
