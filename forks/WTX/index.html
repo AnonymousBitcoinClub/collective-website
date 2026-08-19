@@ -2,30 +2,122 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>WATTxchain — All About BTC</title>
+  <title>WATTxchain (WTX) — All About BTC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="WATTxchain (WTX) — a Bitcoin-lineage chain with hybrid PoW/PoS consensus, seven-algorithm X25X mining, AuxPoW merged mining, EVM smart contracts and Taproot from genesis." />
   <link rel="icon" type="image/png" href="../../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    .placeholder-page {
-      max-width: 800px;
+    .fork-page {
+      max-width: 900px;
       margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
+      padding: 2rem 1.25rem 4rem;
+    }
+    .fork-page h1 {
+      margin-bottom: 0.35rem;
+    }
+    .fork-page .tagline {
       text-align: center;
-    }
-    .placeholder-page h1 {
-      margin-bottom: 1rem;
-    }
-    .placeholder-page p {
       opacity: 0.85;
       font-size: 1.05rem;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+    .fork-page section {
+      margin-bottom: 2.25rem;
+    }
+    .fork-page ul {
+      padding-left: 1.25rem;
+    }
+    .fork-page li {
+      margin-bottom: 0.5rem;
     }
     .back-link {
       display: inline-block;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: var(--secondary-accent);
       font-size: 0.95rem;
+    }
+    .fact-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .fact-table th,
+    .fact-table td {
+      text-align: left;
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid #2c2c2c;
+      vertical-align: top;
+    }
+    .fact-table th {
+      color: var(--secondary-accent);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .fact-table td code,
+    .fork-page code {
+      font-family: "Courier New", Courier, monospace;
+      background: #161616;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.92em;
+    }
+    .table-scroll {
+      overflow-x: auto;
+      border: 1px solid #262626;
+      border-radius: 8px;
+      background: #111111;
+    }
+    .algo-table td:first-child {
+      color: var(--primary-text);
+      font-weight: 700;
+    }
+    .note {
+      border-left: 3px solid var(--secondary-accent);
+      background: #141414;
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.95rem;
+    }
+    .note strong {
+      color: var(--secondary-accent);
+    }
+    .link-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .link-grid a {
+      border: 1px solid #333333;
+      background: #111111;
+      border-radius: 6px;
+      padding: 0.6rem 0.95rem;
+      font-size: 0.95rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .link-grid a:hover {
+      background: #1c1c1c;
+      border-color: var(--secondary-accent);
+      text-decoration: none;
+    }
+    pre.cli {
+      background: #0b0f0d;
+      color: #00ff88;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.9rem;
+      padding: 1rem 1.1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.12);
+    }
+    .disclaimer {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-top: 2.5rem;
+      border-top: 1px solid #333333;
+      padding-top: 1rem;
     }
   </style>
 </head>
@@ -56,10 +148,232 @@
     </nav>
   </header>
 
-  <main class="placeholder-page">
-    <a class="back-link" href="../../forks.html">← Back to Historical Forks</a>
-    <h1>Bitcoin Cash (BCH)</h1>
-    <p>Page under construction.</p>
+  <main class="fork-page">
+    <a class="back-link" href="../../forks.html">&larr; Back to Historical Forks</a>
+
+    <h1>WATTxchain (WTX)</h1>
+    <p class="tagline">Hybrid PoW/PoS &middot; seven-algorithm merged mining &middot; EVM smart contracts &middot; Taproot from genesis</p>
+
+    <section>
+      <h2 class="section-title">What is WATTx?</h2>
+      <p>
+        <strong>WATTx</strong> (ticker <strong>WTX</strong>) is a Bitcoin-lineage blockchain that keeps
+        Bitcoin's UTXO model and 21&nbsp;million coin cap while adding three things Bitcoin deliberately
+        left out: an <strong>Ethereum Virtual Machine</strong> for smart contracts, a
+        <strong>Proof-of-Stake layer</strong> that runs alongside Proof-of-Work, and a mining
+        engine that accepts work from <strong>seven different hashing algorithms</strong> at once.
+      </p>
+      <p>
+        The chain is the settlement layer for <a href="https://wattxchange.app" target="_blank" rel="noopener">WATTxchange</a>,
+        a multi-chain DeFi hub, and it is the reason WTX shows up on a Bitcoin forks list at all:
+        the code descends from Bitcoin Core by way of Qtum, so the transaction format, script engine,
+        address encoding and RPC surface will look immediately familiar to anyone who has run
+        <code>bitcoind</code>.
+      </p>
+
+      <div class="note">
+        <strong>Not a 2017-style chain split.</strong> WATTx did not snapshot the Bitcoin UTXO set and it
+        did not airdrop coins to BTC holders. It is a <em>codebase</em> fork with its own genesis block and
+        its own emission schedule — closer in spirit to Litecoin or Qtum than to Bitcoin Cash or Bitcoin Gold.
+        Every WTX in existence was mined or staked on WATTx's own chain.
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Fast Facts</h2>
+      <div class="table-scroll">
+        <table class="fact-table">
+          <tbody>
+            <tr><th>Ticker</th><td>WTX</td></tr>
+            <tr><th>Codebase</th><td>Bitcoin Core &rarr; Qtum &rarr; WATTx Core</td></tr>
+            <tr><th>Consensus</th><td>Hybrid — X25X multi-algorithm Proof-of-Work + Proof-of-Stake</td></tr>
+            <tr><th>Block time</th><td>2 minutes</td></tr>
+            <tr><th>Block reward</th><td>5 WTX (50 WTX per 10 minutes — Bitcoin's original issuance rate)</td></tr>
+            <tr><th>Halving</th><td>Every 210,000 blocks</td></tr>
+            <tr><th>Max supply</th><td>~21,000,000 WTX</td></tr>
+            <tr><th>P2P port</th><td><code>1337</code> (mainnet) / <code>11337</code> (testnet)</td></tr>
+            <tr><th>Network magic</th><td><code>W A T X</code> (<code>0x57 0x41 0x54 0x58</code>)</td></tr>
+            <tr><th>Addresses</th><td>Base58 starts with <code>W</code> &middot; Bech32 HRP <code>wx</code> &middot; post-quantum Dilithium addresses start with <code>Q</code></td></tr>
+            <tr><th>Taproot</th><td>Active from genesis (block 0)</td></tr>
+            <tr><th>EVM chain ID</th><td><code>22356</code></td></tr>
+            <tr><th>Latest release</th><td><a href="https://github.com/WATTxChain/WATTx/releases" target="_blank" rel="noopener">WATTx Core v0.1.7.7</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">X25X — Seven Algorithms, One Chain</h2>
+      <p>
+        Most chains pick one hash function and live with the consequences: SHA-256 concentrates hashrate
+        in ASIC farms, RandomX concentrates it in CPUs, Ethash in GPUs. WATTx's <strong>X25X</strong>
+        engine accepts blocks from any of its supported algorithms and gives each one
+        <strong>its own independent difficulty retarget</strong>, so a lull in GPU hashrate does not stall the
+        chain and an ASIC farm cannot crowd out CPU miners.
+      </p>
+      <div class="table-scroll">
+        <table class="fact-table algo-table">
+          <thead>
+            <tr><th>Algorithm</th><th>Hardware</th><th>Merge-mines with</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SHA-256d</td><td>ASIC</td><td>Bitcoin</td></tr>
+            <tr><td>Scrypt</td><td>ASIC</td><td>Litecoin, Dogecoin</td></tr>
+            <tr><td>Ethash</td><td>GPU</td><td>Ethereum Classic / ETHW</td></tr>
+            <tr><td>RandomX</td><td>CPU</td><td>Monero</td></tr>
+            <tr><td>Equihash</td><td>GPU</td><td>Zcash-family chains (BitcoinZ)</td></tr>
+            <tr><td>X11</td><td>ASIC</td><td>Dash</td></tr>
+            <tr><td>kHeavyHash</td><td>GPU</td><td>Kaspa</td></tr>
+            <tr><td>GhostRider</td><td>CPU</td><td>Reserved (Raptoreum) — not currently mineable</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Merged Mining: Get Paid Twice for One Hash</h2>
+      <p>
+        WATTx implements <strong>AuxPoW</strong> (auxiliary proof-of-work) — the same mechanism Namecoin
+        pioneered against Bitcoin in 2011, generalised to seven parent chains instead of one. A miner points
+        their hardware at a parent chain as usual; the pool embeds a commitment to a WATTx block inside the
+        parent chain's coinbase transaction. When a share lands, it can satisfy the parent chain's target,
+        WATTx's target, or both.
+      </p>
+      <p>
+        The practical result: <strong>the same hash earns BTC and WTX, or XMR and WTX, or KAS and WTX</strong>.
+        There is no extra power draw and no separate rig — WATTx rides along on work you were already doing.
+      </p>
+      <p>
+        Consensus verifies the parent chain's proof-of-work canonically for every supported algorithm and
+        binds it to the merge-mining commitment, so a WATTx block cannot be claimed with work that does not
+        actually contain it.
+      </p>
+      <p>
+        The reference pool runs one stratum port per algorithm, numbered in algorithm order:
+      </p>
+      <div class="table-scroll">
+        <table class="fact-table">
+          <tbody>
+            <tr><th>3333</th><td>RandomX</td></tr>
+            <tr><th>3334</th><td>SHA-256d</td></tr>
+            <tr><th>3335</th><td>Scrypt</td></tr>
+            <tr><th>3336</th><td>Ethash</td></tr>
+            <tr><th>3337</th><td>Equihash</td></tr>
+            <tr><th>3338</th><td>X11</td></tr>
+            <tr><th>3339</th><td>kHeavyHash</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem;">
+        The public endpoint is <code>pools.wattxchange.app</code>, which is also the default the desktop
+        wallet's Pool mining mode dials. XMRig speaks to the RandomX port directly; the SHA-256d, Scrypt and
+        X11 ports speak standard Bitcoin stratum (<code>mining.subscribe</code> / <code>mining.submit</code>).
+      </p>
+      <pre class="cli"># CPU mining with XMRig, paid to your own WTX address
+xmrig -o pools.wattxchange.app:3333 \
+      -u WYourWattxAddressHere \
+      -a rx/0 --keepalive</pre>
+      <p>
+        Your payout address must be present in the stratum login — either as the username, or appended as
+        <code>+WTX_ADDRESS</code>. Logins with no usable address are refused rather than silently credited
+        elsewhere.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Staking and Trust Tiers</h2>
+      <p>
+        Alongside mining, WATTx runs a Proof-of-Stake layer with registered validators and delegation.
+        What makes it unusual is that staking rewards are weighted by <strong>measured uptime</strong>
+        rather than stake size alone — validators accumulate a trust tier, and a higher tier earns a
+        bonus on top of the base block reward:
+      </p>
+      <div class="table-scroll">
+        <table class="fact-table">
+          <thead><tr><th>Tier</th><th>Reward bonus</th></tr></thead>
+          <tbody>
+            <tr><th>Bronze</th><td>base reward</td></tr>
+            <tr><th>Silver</th><td>+5%</td></tr>
+            <tr><th>Gold</th><td>+10%</td></tr>
+            <tr><th>Platinum</th><td>+15%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem;">
+        Holders who do not want to run a node can delegate stake to a validator and receive a proportional
+        share of that validator's rewards, minus the validator's configurable pool fee.
+      </p>
+      <pre class="cli">wattx-cli listvalidators
+wattx-cli delegatestake "&lt;validatorId&gt;" 10000
+wattx-cli claimrewards</pre>
+    </section>
+
+    <section>
+      <h2 class="section-title">Smart Contracts, Taproot and Ordinals</h2>
+      <ul>
+        <li>
+          <strong>EVM on a UTXO chain.</strong> Inherited from Qtum's account abstraction layer, WATTx runs
+          unmodified Solidity contracts on top of Bitcoin-style UTXOs. Standard Ethereum tooling connects
+          through a JSON-RPC adapter at chain ID <code>22356</code>.
+          <em>Gotcha for developers:</em> <code>msg.value</code> is denominated in satoshis, not wei.
+        </li>
+        <li>
+          <strong>Taproot from block zero.</strong> No activation drama, no BIP9 signalling window — Taproot
+          and Schnorr signatures have been consensus-valid since genesis.
+        </li>
+        <li>
+          <strong>Ordinals and inscriptions.</strong> Because Taproot is live, the Ordinals protocol works on
+          WATTx the way it does on Bitcoin — witness-envelope inscriptions, sat-level tracking, and an
+          indexer and marketplace of its own.
+        </li>
+        <li>
+          <strong>Post-quantum addresses.</strong> WATTx ships a CRYSTALS-Dilithium signature type
+          (addresses beginning with <code>Q</code>) alongside ECDSA and Schnorr, for anyone who wants
+          lattice-based signatures today.
+        </li>
+        <li>
+          <strong>Privacy research.</strong> An FCMP++ (full-chain membership proof) shielded-transaction
+          layer is in development and <strong>disabled by default</strong> — treat it as experimental, not
+          as a privacy guarantee.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Running a Node</h2>
+      <pre class="cli"># Linux x86-64
+tar xzf wattx-0.1.7.7-linux64.tar.gz
+cd wattx-0.1.7.7/bin
+
+./wattxd -daemon
+./wattx-cli createwallet "mywallet"
+./wattx-cli getnewaddress
+./wattx-cli getblockchaininfo</pre>
+      <p>
+        The node bootstraps from the <code>seed1</code>–<code>seed3.wattxchange.app</code> DNS seeds on
+        port <code>1337</code>. Desktop builds (Linux and Windows) ship a Qt wallet with solo and pool
+        mining tabs built in; an Android wallet is published alongside each release.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Links</h2>
+      <div class="link-grid">
+        <a href="https://wattxchain.org" target="_blank" rel="noopener">Project site</a>
+        <a href="https://github.com/WATTxChain/WATTx" target="_blank" rel="noopener">Source code (GitHub)</a>
+        <a href="https://github.com/WATTxChain/WATTx/releases" target="_blank" rel="noopener">Releases &amp; downloads</a>
+        <a href="https://wtx-exp.wattxchange.app" target="_blank" rel="noopener">Block explorer</a>
+        <a href="https://wattxchange.app" target="_blank" rel="noopener">WATTxchange DEX</a>
+        <a href="https://nft.wattxchange.app" target="_blank" rel="noopener">Ordinals marketplace</a>
+      </div>
+    </section>
+
+    <p class="disclaimer">
+      Informational only — nothing on this page is financial advice, an endorsement, or a solicitation.
+      Network parameters are taken from the WATTx Core source and release notes and can change with a
+      consensus upgrade; always verify against the client you actually run. Found something out of date?
+      <a href="https://github.com/AnonymousBitcoinClub/collective-website">Open a PR.</a>
+    </p>
   </main>
 
   <footer>
