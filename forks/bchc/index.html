@@ -4,28 +4,139 @@
   <meta charset="UTF-8" />
   <title>Bitcoin Clashic (BCHC) — All About BTC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bitcoin Clashic (BCHC / BCL) is the minority chain that continued under the original Bitcoin Cash rules after the November 2017 BCH difficulty-adjustment hard fork at block ~504,032." />
   <link rel="icon" type="image/png" href="../../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css" />
+
   <style>
-    .placeholder-page {
-      max-width: 800px;
+    .fork-detail {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .fork-detail h1 {
+      margin-bottom: 0.35rem;
       text-align: center;
     }
-    .placeholder-page h1 {
-      margin-bottom: 1rem;
-    }
-    .placeholder-page p {
+
+    .fork-subtitle {
+      text-align: center;
       opacity: 0.85;
+      margin-bottom: 2rem;
       font-size: 1.05rem;
     }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .meta-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+    }
+
+    .meta-card .label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.65;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta-card .value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary-accent);
+    }
+
+    .section {
+      margin-bottom: 2.25rem;
+    }
+
+    .section h2 {
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 98, 0, 0.35);
+      padding-bottom: 0.35rem;
+    }
+
+    .section p, .section li {
+      line-height: 1.6;
+      opacity: 0.92;
+    }
+
+    .section ul {
+      padding-left: 1.3rem;
+    }
+
+    .section li {
+      margin-bottom: 0.45rem;
+    }
+
+    .lineage {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--secondary-accent);
+      padding: 1rem 1.2rem;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .lineage code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .tech-table th,
+    .tech-table td {
+      text-align: left;
+      padding: 0.55rem 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tech-table th {
+      color: var(--secondary-accent);
+      font-weight: 700;
+      width: 42%;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
     .back-link {
       display: inline-block;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: var(--secondary-accent);
       font-size: 0.95rem;
+    }
+
+    .note {
+      margin-top: 2.5rem;
+      padding: 1rem 1.15rem;
+      border-left: 3px solid var(--secondary-accent);
+      background: rgba(255, 98, 0, 0.06);
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -56,10 +167,159 @@
     </nav>
   </header>
 
-  <main class="placeholder-page">
+  <main class="fork-detail">
     <a class="back-link" href="../../forks.html">← Back to Historical Forks</a>
+
     <h1>Bitcoin Clashic (BCHC)</h1>
-    <p>Page under construction.</p>
+    <p class="fork-subtitle">The minority continuation of the original Bitcoin Cash rules after the November 2017 DAA hard fork</p>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <span class="label">Fork Date</span>
+        <span class="value">13 November 2017</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Fork Block</span>
+        <span class="value">~504,032</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Parent Chain</span>
+        <span class="value">Bitcoin Cash (BCH)</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Ticker</span>
+        <span class="value">BCHC / BCL</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Algorithm</span>
+        <span class="value">SHA-256</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Later Became</span>
+        <span class="value">BTCC (partly)</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>
+        Bitcoin Clashic (also known as BCHC or BCL) is the minority chain that continued mining under the
+        <em>original</em> Bitcoin Cash consensus rules after Bitcoin Cash performed its first major
+        protocol upgrade in November 2017.
+      </p>
+      <p>
+        On 13 November 2017, at approximately block height <strong>504,031 / 504,032</strong>, the majority
+        of the Bitcoin Cash network activated a new Difficulty Adjustment Algorithm (DAA). A small group of
+        nodes and miners refused the new rules and kept producing blocks under the previous ruleset. That
+        minority chain became known as Bitcoin Clashic.
+      </p>
+      <p>
+        The name is a playful combination of “Classic” and “Clash,” reflecting both the desire to preserve
+        the original Bitcoin Cash rules and the contentious nature of the split.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Chain Lineage</h2>
+      <div class="lineage">
+        <strong>Bitcoin (BTC)</strong> → block <code>478,558 / 478,559</code> (1 Aug 2017)<br>
+        → <strong>Bitcoin Cash (BCH)</strong><br><br>
+
+        <strong>Bitcoin Cash</strong> → ~block <code>504,032</code> (13 Nov 2017 – new DAA)<br>
+        → Majority continued as <strong>BCH</strong><br>
+        → Minority continued as <strong>Bitcoin Clashic (BCHC / BCL)</strong><br><br>
+
+        Later, a portion of the Clashic community performed another upgrade (~block 576,698)
+        that became <strong>Bitcoin Core (BTCC)</strong>.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why the Split Happened</h2>
+      <p>
+        The original Bitcoin Cash emergency difficulty adjustment (EDA) algorithm, used after the August 2017
+        fork from Bitcoin, produced highly unstable block times. In periods of low hashrate, blocks could take
+        hours; when hashrate returned, blocks could come every few seconds.
+      </p>
+      <p>
+        In November 2017 the Bitcoin Cash community activated a new, more stable difficulty adjustment
+        algorithm. Most of the network upgraded. A minority argued that the change abandoned the rules under
+        which Bitcoin Cash had originally forked from Bitcoin and therefore refused to follow the upgrade.
+        Their chain retained the older rules and took the name Bitcoin Clashic.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Technical Characteristics</h2>
+      <table class="tech-table">
+        <tr>
+          <th>Algorithm</th>
+          <td>SHA-256 (same as Bitcoin / Bitcoin Cash)</td>
+        </tr>
+        <tr>
+          <th>Origin</th>
+          <td>Continuation of pre-November-2017 Bitcoin Cash rules</td>
+        </tr>
+        <tr>
+          <th>Block size</th>
+          <td>Inherited large-block rules from early BCH (initially 8 MB)</td>
+        </tr>
+        <tr>
+          <th>Replay protection vs BCH</th>
+          <td>Weak / incomplete at first (same SIGHASH_FORKID style as BCH). Replay risk existed between the two chains.</td>
+        </tr>
+        <tr>
+          <th>Replay protection vs BTC</th>
+          <td>Present (inherited from the original BCH fork)</td>
+        </tr>
+        <tr>
+          <th>Common tickers</th>
+          <td>BCHC, BCL</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Later History</h2>
+      <p>
+        Bitcoin Clashic never attracted significant hashrate or exchange support compared with Bitcoin Cash.
+        Over the following months the project remained a small minority chain.
+      </p>
+      <p>
+        In mid-2018 a further upgrade of the Clashic codebase produced the project that branded itself
+        <strong>Bitcoin Core (BTCC)</strong> (unrelated to the Bitcoin Core software). That later project
+        introduced 1-minute blocks and other changes and eventually moved toward a rebrand as Title Network.
+      </p>
+      <p>
+        Because of the multi-step history, simply holding BCH at the November 2017 fork did not automatically
+        give users Clashic (or later BTCC) unless they remained on the minority chain.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Historical Significance</h2>
+      <p>
+        Bitcoin Clashic is a useful illustration of how even “successful” hard forks can immediately produce
+        further minority chains when part of the community rejects a subsequent upgrade. It sits in the
+        middle of the 2017–2018 cascade of Bitcoin-named forks and is the direct predecessor of the
+        deliberately provocatively named Bitcoin Core (BTCC) token.
+      </p>
+    </section>
+
+    <section class="section links">
+      <h2>Resources</h2>
+      <p>
+        <a href="https://bitcointalk.org/index.php?topic=2424646.0" target="_blank" rel="noopener">Bitcointalk announcement thread</a>
+        <a href="https://forkdrop.io/bitcoin-clashic" target="_blank" rel="noopener">Forkdrop.io entry</a>
+      </p>
+    </section>
+
+    <div class="note">
+      <strong>Note:</strong> Block height 504,032 is the most commonly cited split point. Exact first
+      divergent block numbers can vary slightly depending on the source and how nodes counted the
+      activation. Always verify current chain state independently if interacting with any remaining
+      infrastructure.
+    </div>
   </main>
 
   <footer>
