@@ -4,28 +4,123 @@
   <meta charset="UTF-8" />
   <title>Bitcoin Gold (BTG) — All About BTC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bitcoin Gold (BTG) forked from Bitcoin at block 491,407 on 24 October 2017. It changed the proof-of-work algorithm to Equihash to enable GPU mining and reduce ASIC dominance." />
   <link rel="icon" type="image/png" href="../../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css" />
+
   <style>
-    .placeholder-page {
-      max-width: 800px;
+    .fork-detail {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .fork-detail h1 {
+      margin-bottom: 0.35rem;
       text-align: center;
     }
-    .placeholder-page h1 {
-      margin-bottom: 1rem;
-    }
-    .placeholder-page p {
+
+    .fork-subtitle {
+      text-align: center;
       opacity: 0.85;
+      margin-bottom: 2rem;
       font-size: 1.05rem;
     }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .meta-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+    }
+
+    .meta-card .label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.65;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta-card .value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary-accent);
+    }
+
+    .section {
+      margin-bottom: 2.25rem;
+    }
+
+    .section h2 {
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 98, 0, 0.35);
+      padding-bottom: 0.35rem;
+    }
+
+    .section p, .section li {
+      line-height: 1.6;
+      opacity: 0.92;
+    }
+
+    .section ul {
+      padding-left: 1.3rem;
+    }
+
+    .section li {
+      margin-bottom: 0.45rem;
+    }
+
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .tech-table th,
+    .tech-table td {
+      text-align: left;
+      padding: 0.55rem 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tech-table th {
+      color: var(--secondary-accent);
+      font-weight: 700;
+      width: 42%;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
     .back-link {
       display: inline-block;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: var(--secondary-accent);
       font-size: 0.95rem;
+    }
+
+    .note {
+      margin-top: 2.5rem;
+      padding: 1rem 1.15rem;
+      border-left: 3px solid var(--secondary-accent);
+      background: rgba(255, 98, 0, 0.06);
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -56,10 +151,174 @@
     </nav>
   </header>
 
-  <main class="placeholder-page">
+  <main class="fork-detail">
     <a class="back-link" href="../../forks.html">← Back to Historical Forks</a>
+
     <h1>Bitcoin Gold (BTG)</h1>
-    <p>Page under construction.</p>
+    <p class="fork-subtitle">ASIC-resistant Bitcoin fork that switched to Equihash for GPU mining</p>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <span class="label">Snapshot / Fork Date</span>
+        <span class="value">24 October 2017</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Fork Block</span>
+        <span class="value">491,407</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Parent Chain</span>
+        <span class="value">Bitcoin (BTC)</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Ticker</span>
+        <span class="value">BTG</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">PoW Algorithm</span>
+        <span class="value">Equihash → Equihash-BTG</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Distribution</span>
+        <span class="value">1:1 to BTC holders</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>
+        Bitcoin Gold (BTG) is a hard fork of Bitcoin that took a snapshot after block
+        <strong>491,406</strong> on <strong>24 October 2017</strong>. The first post-fork block on the
+        new chain is height <strong>491,407</strong>. Anyone holding BTC (and controlling the private
+        keys) at the snapshot received an equal amount of BTG.
+      </p>
+      <p>
+        The project’s primary goal was to reduce mining centralization by changing the
+        proof-of-work algorithm from SHA-256 (dominated by ASICs) to <strong>Equihash</strong>,
+        which was designed to be more accessible to GPU miners. The team hoped this would
+        make mining more decentralized and open to ordinary users with consumer graphics cards.
+      </p>
+      <p>
+        Public mining of the new chain began later (around 12 November 2017) after a short
+        post-fork “endowment” period.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Key Features at Launch</h2>
+      <ul>
+        <li><strong>ASIC-resistant PoW</strong> — Original Equihash (later changed).</li>
+        <li><strong>SegWit support</strong> — Inherited and retained from Bitcoin.</li>
+        <li><strong>Full two-way replay protection</strong> — SIGHASH_FORKID with ForkID = 79.</li>
+        <li><strong>Unique address format</strong> — Addresses begin with <code>G</code> or <code>A</code> to reduce accidental cross-chain sends.</li>
+        <li><strong>Per-block difficulty adjustment</strong> — More responsive than Bitcoin’s two-week retarget.</li>
+        <li><strong>1:1 claim</strong> — Same private keys that controlled BTC at the snapshot controlled the corresponding BTG.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>The Endowment (Post-Mine)</h2>
+      <p>
+        After the snapshot, the project mined approximately <strong>100,000 BTG</strong> over
+        8,000 blocks (heights 491,407–499,406) at minimal difficulty. This has often been
+        called a “premine,” although technically it occurred after the fork.
+      </p>
+      <ul>
+        <li>~5% was allocated as an initial reward to the core team.</li>
+        <li>The remaining ~95% was placed into multi-signature wallets intended as an endowment for ecosystem development.</li>
+        <li>A large portion of the endowment was time-locked (released gradually over years).</li>
+      </ul>
+      <p>
+        The endowment was controversial at the time and remains one of the most discussed
+        aspects of the project’s launch economics.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Technical Specifications</h2>
+      <table class="tech-table">
+        <tr>
+          <th>Original PoW</th>
+          <td>Equihash</td>
+        </tr>
+        <tr>
+          <th>Later PoW (Jul 2018)</th>
+          <td>Equihash-BTG (N=144, K=5) with personalization string “BgoldPoW”</td>
+        </tr>
+        <tr>
+          <th>Fork height</th>
+          <td>491,407 (first post-fork block)</td>
+        </tr>
+        <tr>
+          <th>Replay protection</th>
+          <td>SIGHASH_FORKID, ForkID = 79</td>
+        </tr>
+        <tr>
+          <th>Address prefixes</th>
+          <td>G… and A…</td>
+        </tr>
+        <tr>
+          <th>Max supply</th>
+          <td>21,000,000 (same issuance schedule philosophy as Bitcoin)</td>
+        </tr>
+        <tr>
+          <th>Difficulty adjustment</th>
+          <td>Per-block (DigiShield-style early on; later LWMA after 2018 upgrade)</td>
+        </tr>
+        <tr>
+          <th>Codebase</th>
+          <td>Fork of Bitcoin Core</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>2018 PoW Hard Fork</h2>
+      <p>
+        In July 2018 (around block height <strong>536,200</strong>) Bitcoin Gold activated a
+        further hard fork that changed the Equihash parameters to a new variant called
+        <strong>Equihash-BTG</strong> (144,5) and switched the difficulty algorithm to Zawy’s
+        LWMA. The change was partly a response to the emergence of Equihash ASICs and to
+        earlier network security issues.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Security History</h2>
+      <p>
+        Bitcoin Gold suffered notable <strong>51% attacks</strong> in 2018 and again in 2020.
+        These attacks allowed double-spending and damaged confidence in the network. The
+        relatively low hashrate of an Equihash (and later Equihash-BTG) chain made it a
+        recurring target compared with SHA-256 chains that can draw on Bitcoin’s much larger
+        mining ecosystem.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Historical Context</h2>
+      <p>
+        Bitcoin Gold was one of the earliest and most prominent forks of the 2017 wave.
+        While Bitcoin Cash focused on larger blocks, Bitcoin Gold focused on changing who
+        could profitably mine. It attracted significant attention and exchange listings at
+        launch, but like most of the era’s forks it later declined sharply in hashrate,
+        development activity, and market relevance.
+      </p>
+    </section>
+
+    <section class="section links">
+      <h2>Resources</h2>
+      <p>
+        <a href="https://bitcoingold.org" target="_blank" rel="noopener">Official website</a>
+        <a href="https://github.com/BTCGPU/BTCGPU" target="_blank" rel="noopener">GitHub (BTG Core)</a>
+        <a href="https://github.com/BTCGPU/BTCGPU/wiki/Technical-Spec" target="_blank" rel="noopener">Technical specification (wiki)</a>
+      </p>
+    </section>
+
+    <div class="note">
+      <strong>Note:</strong> Snapshot height is commonly given as after Bitcoin block 491,406
+      (first BTG block 491,407). Public mining of the independent chain began roughly three
+      weeks later. Always verify current network status and software sources independently.
+    </div>
   </main>
 
   <footer>
