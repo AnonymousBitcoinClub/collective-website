@@ -4,28 +4,123 @@
   <meta charset="UTF-8" />
   <title>Bitcoin Classic — All About BTC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bitcoin Classic was a 2016–2017 Bitcoin software client that proposed raising the block size limit to 2 MB. It never produced a lasting chain split and shut down in November 2017." />
   <link rel="icon" type="image/png" href="../../favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css" />
+
   <style>
-    .placeholder-page {
-      max-width: 800px;
+    .fork-detail {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .fork-detail h1 {
+      margin-bottom: 0.35rem;
       text-align: center;
     }
-    .placeholder-page h1 {
-      margin-bottom: 1rem;
-    }
-    .placeholder-page p {
+
+    .fork-subtitle {
+      text-align: center;
       opacity: 0.85;
+      margin-bottom: 2rem;
       font-size: 1.05rem;
     }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .meta-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+    }
+
+    .meta-card .label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.65;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta-card .value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary-accent);
+    }
+
+    .section {
+      margin-bottom: 2.25rem;
+    }
+
+    .section h2 {
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 98, 0, 0.35);
+      padding-bottom: 0.35rem;
+    }
+
+    .section p, .section li {
+      line-height: 1.6;
+      opacity: 0.92;
+    }
+
+    .section ul {
+      padding-left: 1.3rem;
+    }
+
+    .section li {
+      margin-bottom: 0.45rem;
+    }
+
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .tech-table th,
+    .tech-table td {
+      text-align: left;
+      padding: 0.55rem 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tech-table th {
+      color: var(--secondary-accent);
+      font-weight: 700;
+      width: 42%;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
     .back-link {
       display: inline-block;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: var(--secondary-accent);
       font-size: 0.95rem;
+    }
+
+    .note {
+      margin-top: 2.5rem;
+      padding: 1rem 1.15rem;
+      border-left: 3px solid var(--secondary-accent);
+      background: rgba(255, 98, 0, 0.06);
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -56,10 +151,177 @@
     </nav>
   </header>
 
-  <main class="placeholder-page">
+  <main class="fork-detail">
     <a class="back-link" href="../../forks.html">← Back to Historical Forks</a>
+
     <h1>Bitcoin Classic</h1>
-    <p>Page under construction.</p>
+    <p class="fork-subtitle">2016–2017 software client proposing a 2 MB block-size hard fork — never activated a lasting chain split</p>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <span class="label">Active Period</span>
+        <span class="value">2016–2017</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Type</span>
+        <span class="value">Software / client project</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Proposed Change</span>
+        <span class="value">1 MB → 2 MB blocks</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Activation Threshold</span>
+        <span class="value">~75% of blocks</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Outcome</span>
+        <span class="value">Did not activate</span>
+      </div>
+      <div class="meta-card">
+        <span class="label">Shut Down</span>
+        <span class="value">November 2017</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>
+        Bitcoin Classic was an alternative full-node implementation of Bitcoin, forked from
+        Bitcoin Core, that emerged in early 2016 during the block-size wars. Its main goal
+        was to raise the maximum block size from 1 MB to <strong>2 MB</strong> via a hard fork
+        (BIP 109-style activation).
+      </p>
+      <p>
+        Unlike later successful coin-producing forks such as Bitcoin Cash, Bitcoin Classic
+        never gained enough sustained miner and economic support to trigger a permanent
+        chain split. It remained a competing client on the same Bitcoin network and
+        eventually shut down after Bitcoin Cash launched and the scaling debate moved on.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Context: The Block Size Wars</h2>
+      <p>
+        By 2015–2016, Bitcoin’s 1 MB block limit was producing growing mempool backlogs and
+        rising fees. Several alternative clients appeared to push on-chain scaling:
+      </p>
+      <ul>
+        <li><strong>Bitcoin XT</strong> (2015) — more aggressive (up to 8 MB, then doubling).</li>
+        <li><strong>Bitcoin Classic</strong> (2016) — more modest 2 MB proposal.</li>
+        <li><strong>Bitcoin Unlimited</strong> — let nodes/miners set their own limits.</li>
+      </ul>
+      <p>
+        Bitcoin Classic was positioned as a compromise: large enough to relieve short-term
+        congestion, small enough to be more widely acceptable than XT’s bigger jumps.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>How Activation Was Supposed to Work</h2>
+      <p>
+        Classic planned a miner-activated hard fork:
+      </p>
+      <ul>
+        <li>Miners would signal support in block version bits.</li>
+        <li>Once roughly <strong>75%</strong> of the last 1,000 blocks signaled (750/1,000), a grace period (typically 28 days) would begin.</li>
+        <li>After the grace period, Classic nodes would accept blocks up to 2 MB.</li>
+        <li>If a sufficient majority of economic nodes and miners upgraded, the network would move to the larger limit; otherwise a split (or stalled activation) was possible.</li>
+      </ul>
+      <p>
+        In practice the required sustained support never materialized at the necessary level
+        for long enough to lock in the change.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Key People &amp; Development</h2>
+      <p>
+        Early contributors and supporters included Jonathan Toomim (significant technical
+        work and testing), involvement or support from figures such as Gavin Andresen
+        (who had previously advocated larger blocks), Jeff Garzik, and others. The project
+        released software based on Bitcoin Core 0.11.x / 0.12.x with the 2 MB limit and
+        related improvements (faster validation/propagation work, later ideas for more
+        flexible limits).
+      </p>
+      <p>
+        Over time Classic’s roadmap evolved from a fixed 2 MB hard fork toward more
+        market-driven / node-operator-chosen limits, overlapping in spirit with Bitcoin Unlimited.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Outcome</h2>
+      <p>
+        Bitcoin Classic never activated a lasting hard fork on the main Bitcoin chain.
+        Hashrate and node adoption peaked but then declined as the community polarized
+        further and other proposals (SegWit, the New York Agreement / SegWit2x, and
+        ultimately Bitcoin Cash) dominated attention.
+      </p>
+      <p>
+        In <strong>November 2017</strong>, after Bitcoin Cash had successfully launched as the
+        big-block chain (August 2017) and SegWit had activated on Bitcoin, the Bitcoin Classic
+        project announced it was shutting down. Its original goal of enabling larger on-chain
+        capacity had, in a sense, been realized on a separate chain, and the Classic client
+        itself was no longer needed.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Technical Snapshot</h2>
+      <table class="tech-table">
+        <tr>
+          <th>Type</th>
+          <td>Full-node software fork of Bitcoin Core</td>
+        </tr>
+        <tr>
+          <th>Primary proposal</th>
+          <td>Raise max block size from 1 MB to 2 MB</td>
+        </tr>
+        <tr>
+          <th>Activation method</th>
+          <td>Miner signaling (~75% of recent blocks) + grace period</td>
+        </tr>
+        <tr>
+          <th>Produced new coin?</th>
+          <td>No — never created a permanent alternate chain with its own ticker</td>
+        </tr>
+        <tr>
+          <th>Relation to Bitcoin Cash</th>
+          <td>Philosophical predecessor in the big-block camp; BCH succeeded where Classic did not</td>
+        </tr>
+        <tr>
+          <th>Status</th>
+          <td>Project closed November 2017</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Historical Significance</h2>
+      <p>
+        Bitcoin Classic is an important chapter in the block-size wars. It showed both the
+        strength of demand for on-chain capacity and the difficulty of coordinating a
+        contentious hard fork on Bitcoin itself. Its failure (and the parallel rise of
+        Bitcoin Cash) helped clarify that major rule changes without broad consensus would
+        more likely produce separate coins than rewrite the original chain’s rules.
+      </p>
+    </section>
+
+    <section class="section links">
+      <h2>Resources</h2>
+      <p>
+        <a href="https://bitcoinclassic.com" target="_blank" rel="noopener">Project site (archived content)</a>
+        <a href="https://github.com/bitcoinclassic" target="_blank" rel="noopener">GitHub organization</a>
+      </p>
+    </section>
+
+    <div class="note">
+      <strong>Note:</strong> Bitcoin Classic was a software client and proposed hard-fork
+      rule change, not a successful coin-producing blockchain fork. No separate “Bitcoin
+      Classic” token was distributed to BTC holders the way BCH or BTG were. Information
+      here is historical.
+    </div>
   </main>
 
   <footer>
